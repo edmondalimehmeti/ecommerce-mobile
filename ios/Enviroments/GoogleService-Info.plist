@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>20976514986-47kuuscch02k3t5l2rg4oim755uifa3g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.20976514986-47kuuscch02k3t5l2rg4oim755uifa3g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyApig4YB8dLAfVR3dtP6UYGcO3w8xJZi1Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>20976514986</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>io.pok.pokpay</string>
+	<key>PROJECT_ID</key>
+	<string>pokpay-production</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pokpay-production.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:20976514986:ios:62223bb5bd5d0800151dd3</string>
+</dict>
+</plist>

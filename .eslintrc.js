@@ -1,0 +1,25 @@
+module.exports = {
+  root: true,
+  extends: '@react-native',
+  plugins: ['import'],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        alias: {
+          _config: './src/config',
+          _i18n: './src/i18n',
+          _modules: './src/modules',
+          _redux: './src/redux',
+          _assets: './src/assets',
+          _components: './src/components',
+          _navigations: './src/navigations',
+          _scenes: './src/scenes',
+          _services: './src/services',
+          _utils: './src/utils',
+          _theme: './src/theme',
+        },
+      },
+    },
+  },
+};

@@ -1,0 +1,36 @@
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import AppNavigator from '_navigations/index';
+import {toastConfig} from '_utils/helpers/functions';
+import Toast from 'react-native-toast-message';
+import {CLoader} from '_components/index';
+import useReduxSelector from '_utils/hooks/useReduxSelector';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+
+const RootScreen = () => {
+  const showLoader = useReduxSelector('globalLoaderState.show', false);
+
+  return (
+    <GestureHandlerRootView style={styles.flex1}>
+      <AppNavigator />
+      <Toast topOffset={40} config={toastConfig} setRef={Toast.setRootRef} />
+      <CLoader loading={showLoader} />
+    </GestureHandlerRootView>
+  );
+};
+
+export default RootScreen;
+
+const styles = StyleSheet.create({
+  flex1: {flex: 1},
+  animation: {
+    position: 'absolute',
+    zIndex: 1002,
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    top: -20,
+  },
+});
