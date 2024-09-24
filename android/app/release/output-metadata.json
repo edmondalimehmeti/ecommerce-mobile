@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.convention.staffing",
+  "applicationId": "io.dollapp",
   "variantName": "release",
   "elements": [
     {

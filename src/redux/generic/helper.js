@@ -1,7 +1,6 @@
 import {snakeCase} from 'lodash';
 import apicall from '_utils/apicall';
 import _ from 'lodash';
-import I18n from '_i18n/';
 import deviceInfoModule from 'react-native-device-info';
 import {appData, showBottomSheet} from '_redux/app/actions';
 import moment from 'moment';
@@ -151,11 +150,7 @@ export const createFetchActionCreator =
         data: {error: err.response},
       });
 
-      onError &&
-        onError(
-          err,
-          _.get(err, 'response.data.message', I18n.no_internet_connection),
-        );
+      onError && onError(err, _.get(err, 'response.data.message'));
 
       console.log(
         'Fetch failed %s: %s',

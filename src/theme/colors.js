@@ -13,7 +13,7 @@ export default {
   accentColor: '#95a5a6',
   lightestGrey: '#F2F4F8',
   lightGrey: '#e6e6f0',
-  lightGreen: '#C9EDD3',
+  lightGreen: '#AFECCC',
   lightRed: '#FFD4D2',
   transparent: 'rgba(0,0,0,0)',
   white: '#ffffff',

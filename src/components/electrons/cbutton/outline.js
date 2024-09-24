@@ -25,10 +25,9 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 50,
-    backgroundColor: colors.transparent,
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
     flexDirection: 'row',
     borderColor: colors.grey4,
     borderWidth: 1,

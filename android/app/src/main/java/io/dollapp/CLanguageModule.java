@@ -1,4 +1,4 @@
-package com.convention.staffing; // replace com.your-app-name with your app’s name
+package io.dollapp; // replace com.your-app-name with your app’s name
 
 import android.content.res.Configuration;
 import android.content.res.Resources;

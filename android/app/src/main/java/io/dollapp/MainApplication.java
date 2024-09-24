@@ -1,4 +1,4 @@
-package com.convention.staffing;
+package io.dollapp;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

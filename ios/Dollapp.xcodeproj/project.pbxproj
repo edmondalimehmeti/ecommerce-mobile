@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* VPPDriversAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* VPPDriversAppTests.m */; };
+		00E356F31AD99517003FC87E /* DollappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DollappTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		19CFE5DFAEB3EB1B4A4838D3 /* Pods_VPPDriversApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E915DCF78B8C871BCD0105D /* Pods_VPPDriversApp.framework */; };
-		4FB37FD1BFB7015DE8ECB2D2 /* Pods_VPPDriversApp_VPPDriversAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A8350783CD811EEB89D577 /* Pods_VPPDriversApp_VPPDriversAppTests.framework */; };
+		54A1EB7D2C162F4940052CDF /* Pods_Dollapp_DollappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD532620196603F9B2409667 /* Pods_Dollapp_DollappTests.framework */; };
+		727F82EF27EE43B24A75D67E /* Pods_Dollapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA8F51E71BD65440082FC5 /* Pods_Dollapp.framework */; };
 		91367D5110F34CD0BC0E11FC /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E99203E1C6F4DC3BE1A5AF0 /* BootSplash.storyboard */; };
 		CE45957B2BBE1A2E00F318CE /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4595682BBE1A2D00F318CE /* Fontisto.ttf */; };
 		CE45957C2BBE1A2E00F318CE /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4595692BBE1A2D00F318CE /* Octicons.ttf */; };
@@ -43,27 +43,26 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = VPPDriversApp;
+			remoteInfo = Dollapp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* VPPDriversAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VPPDriversAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* DollappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DollappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* VPPDriversAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VPPDriversAppTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* VPPDriversApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VPPDriversApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = VPPDriversApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = VPPDriversApp/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VPPDriversApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VPPDriversApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = VPPDriversApp/main.m; sourceTree = "<group>"; };
-		2E915DCF78B8C871BCD0105D /* Pods_VPPDriversApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPPDriversApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37A8350783CD811EEB89D577 /* Pods_VPPDriversApp_VPPDriversAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VPPDriversApp_VPPDriversAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E99203E1C6F4DC3BE1A5AF0 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = VPPDriversApp/BootSplash.storyboard; sourceTree = "<group>"; };
-		6229944795BA7F1562206336 /* Pods-VPPDriversApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPPDriversApp.debug.xcconfig"; path = "Target Support Files/Pods-VPPDriversApp/Pods-VPPDriversApp.debug.xcconfig"; sourceTree = "<group>"; };
-		9DAE58B11CFAB973E5B9C92B /* Pods-VPPDriversApp-VPPDriversAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPPDriversApp-VPPDriversAppTests.release.xcconfig"; path = "Target Support Files/Pods-VPPDriversApp-VPPDriversAppTests/Pods-VPPDriversApp-VPPDriversAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		B00816B462A0E2CC8F3824D2 /* Pods-VPPDriversApp-VPPDriversAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPPDriversApp-VPPDriversAppTests.debug.xcconfig"; path = "Target Support Files/Pods-VPPDriversApp-VPPDriversAppTests/Pods-VPPDriversApp-VPPDriversAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CB41D7427F23BB8A5EB8DF1A /* Pods-VPPDriversApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPPDriversApp.release.xcconfig"; path = "Target Support Files/Pods-VPPDriversApp/Pods-VPPDriversApp.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* DollappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DollappTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Dollapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Dollapp/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Dollapp/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Dollapp/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Dollapp/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Dollapp/main.m; sourceTree = "<group>"; };
+		3E99203E1C6F4DC3BE1A5AF0 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = Dollapp/BootSplash.storyboard; sourceTree = "<group>"; };
+		5AFA8F51E71BD65440082FC5 /* Pods_Dollapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dollapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6229944795BA7F1562206336 /* Pods-Dollapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp.debug.xcconfig"; path = "Target Support Files/Pods-Dollapp/Pods-Dollapp.debug.xcconfig"; sourceTree = "<group>"; };
+		9DAE58B11CFAB973E5B9C92B /* Pods-Dollapp-DollappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp-DollappTests.release.xcconfig"; path = "Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests.release.xcconfig"; sourceTree = "<group>"; };
+		B00816B462A0E2CC8F3824D2 /* Pods-Dollapp-DollappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp-DollappTests.debug.xcconfig"; path = "Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB41D7427F23BB8A5EB8DF1A /* Pods-Dollapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp.release.xcconfig"; path = "Target Support Files/Pods-Dollapp/Pods-Dollapp.release.xcconfig"; sourceTree = "<group>"; };
 		CE4595682BBE1A2D00F318CE /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		CE4595692BBE1A2D00F318CE /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		CE45956A2BBE1A2D00F318CE /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -83,11 +82,12 @@
 		CE4595782BBE1A2E00F318CE /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		CE4595792BBE1A2E00F318CE /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
 		CE45957A2BBE1A2E00F318CE /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
-		CEA2310E2AB4755A00A0B586 /* VPPDriversApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VPPDriversApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		CEA2310E2AB4755A00A0B586 /* Dollapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dollapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		CEA231132AB475FE00A0B586 /* CLanguageModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLanguageModule.m; sourceTree = "<group>"; };
 		CEA231142AB475FE00A0B586 /* CLanguageModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLanguageModule.swift; sourceTree = "<group>"; };
-		CECDDB732AB9C6E00059A726 /* VPPDriversApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = VPPDriversApp.entitlements; path = VPPDriversApp/VPPDriversApp.entitlements; sourceTree = "<group>"; };
+		CECDDB732AB9C6E00059A726 /* Dollapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Dollapp.entitlements; path = Dollapp/Dollapp.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FD532620196603F9B2409667 /* Pods_Dollapp_DollappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dollapp_DollappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB37FD1BFB7015DE8ECB2D2 /* Pods_VPPDriversApp_VPPDriversAppTests.framework in Frameworks */,
+				54A1EB7D2C162F4940052CDF /* Pods_Dollapp_DollappTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,20 +103,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19CFE5DFAEB3EB1B4A4838D3 /* Pods_VPPDriversApp.framework in Frameworks */,
+				727F82EF27EE43B24A75D67E /* Pods_Dollapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* VPPDriversAppTests */ = {
+		00E356EF1AD99517003FC87E /* DollappTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* VPPDriversAppTests.m */,
+				00E356F21AD99517003FC87E /* DollappTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = VPPDriversAppTests;
+			path = DollappTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -127,27 +127,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* VPPDriversApp */ = {
+		13B07FAE1A68108700A75B9A /* Dollapp */ = {
 			isa = PBXGroup;
 			children = (
-				CECDDB732AB9C6E00059A726 /* VPPDriversApp.entitlements */,
+				CECDDB732AB9C6E00059A726 /* Dollapp.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				CEA2310E2AB4755A00A0B586 /* VPPDriversApp-Bridging-Header.h */,
+				CEA2310E2AB4755A00A0B586 /* Dollapp-Bridging-Header.h */,
 				3E99203E1C6F4DC3BE1A5AF0 /* BootSplash.storyboard */,
 			);
-			name = VPPDriversApp;
+			name = Dollapp;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				2E915DCF78B8C871BCD0105D /* Pods_VPPDriversApp.framework */,
-				37A8350783CD811EEB89D577 /* Pods_VPPDriversApp_VPPDriversAppTests.framework */,
+				5AFA8F51E71BD65440082FC5 /* Pods_Dollapp.framework */,
+				FD532620196603F9B2409667 /* Pods_Dollapp_DollappTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -162,10 +162,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* VPPDriversApp */,
+				13B07FAE1A68108700A75B9A /* Dollapp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				CEA231112AB4759400A0B586 /* Modules */,
-				00E356EF1AD99517003FC87E /* VPPDriversAppTests */,
+				00E356EF1AD99517003FC87E /* DollappTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				CE4595672BBE1A2D00F318CE /* Fonts */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -179,8 +179,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* VPPDriversApp.app */,
-				00E356EE1AD99517003FC87E /* VPPDriversAppTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Dollapp.app */,
+				00E356EE1AD99517003FC87E /* DollappTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,10 +188,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6229944795BA7F1562206336 /* Pods-VPPDriversApp.debug.xcconfig */,
-				CB41D7427F23BB8A5EB8DF1A /* Pods-VPPDriversApp.release.xcconfig */,
-				B00816B462A0E2CC8F3824D2 /* Pods-VPPDriversApp-VPPDriversAppTests.debug.xcconfig */,
-				9DAE58B11CFAB973E5B9C92B /* Pods-VPPDriversApp-VPPDriversAppTests.release.xcconfig */,
+				6229944795BA7F1562206336 /* Pods-Dollapp.debug.xcconfig */,
+				CB41D7427F23BB8A5EB8DF1A /* Pods-Dollapp.release.xcconfig */,
+				B00816B462A0E2CC8F3824D2 /* Pods-Dollapp-DollappTests.debug.xcconfig */,
+				9DAE58B11CFAB973E5B9C92B /* Pods-Dollapp-DollappTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -243,9 +243,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* VPPDriversAppTests */ = {
+		00E356ED1AD99517003FC87E /* DollappTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "VPPDriversAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DollappTests" */;
 			buildPhases = (
 				0FAFEF9BF6128EF0D1C65318 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -258,14 +258,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = VPPDriversAppTests;
-			productName = VPPDriversAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* VPPDriversAppTests.xctest */;
+			name = DollappTests;
+			productName = DollappTests;
+			productReference = 00E356EE1AD99517003FC87E /* DollappTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* VPPDriversApp */ = {
+		13B07F861A680F5B00A75B9A /* Dollapp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VPPDriversApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dollapp" */;
 			buildPhases = (
 				64C822F26F1A4F3FA118D992 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -280,9 +280,9 @@
 			);
 			dependencies = (
 			);
-			name = VPPDriversApp;
-			productName = VPPDriversApp;
-			productReference = 13B07F961A680F5B00A75B9A /* VPPDriversApp.app */;
+			name = Dollapp;
+			productName = Dollapp;
+			productReference = 13B07F961A680F5B00A75B9A /* Dollapp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -302,7 +302,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "VPPDriversApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Dollapp" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -316,8 +316,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* VPPDriversApp */,
-				00E356ED1AD99517003FC87E /* VPPDriversAppTests */,
+				13B07F861A680F5B00A75B9A /* Dollapp */,
+				00E356ED1AD99517003FC87E /* DollappTests */,
 			);
 		};
 /* End PBXProject section */
@@ -392,7 +392,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VPPDriversApp-VPPDriversAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Dollapp-DollappTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -405,15 +405,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp/Pods-VPPDriversApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Dollapp/Pods-Dollapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp/Pods-VPPDriversApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Dollapp/Pods-Dollapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp/Pods-VPPDriversApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dollapp/Pods-Dollapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64C822F26F1A4F3FA118D992 /* [CP] Check Pods Manifest.lock */ = {
@@ -431,7 +431,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VPPDriversApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Dollapp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -457,15 +457,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp-VPPDriversAppTests/Pods-VPPDriversApp-VPPDriversAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp-VPPDriversAppTests/Pods-VPPDriversApp-VPPDriversAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VPPDriversApp-VPPDriversAppTests/Pods-VPPDriversApp-VPPDriversAppTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -494,7 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* VPPDriversAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* DollappTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +514,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* VPPDriversApp */;
+			target = 13B07F861A680F5B00A75B9A /* Dollapp */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -522,7 +522,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B00816B462A0E2CC8F3824D2 /* Pods-VPPDriversApp-VPPDriversAppTests.debug.xcconfig */;
+			baseConfigurationReference = B00816B462A0E2CC8F3824D2 /* Pods-Dollapp-DollappTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,7 +530,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = VPPDriversAppTests/Info.plist;
+				INFOPLIST_FILE = DollappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -542,20 +542,20 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vpp.drivers.app;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dollapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VPPDriversApp.app/VPPDriversApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dollapp.app/Dollapp";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DAE58B11CFAB973E5B9C92B /* Pods-VPPDriversApp-VPPDriversAppTests.release.xcconfig */;
+			baseConfigurationReference = 9DAE58B11CFAB973E5B9C92B /* Pods-Dollapp-DollappTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = VPPDriversAppTests/Info.plist;
+				INFOPLIST_FILE = DollappTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,27 +567,27 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vpp.drivers.app;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dollapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VPPDriversApp.app/VPPDriversApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dollapp.app/Dollapp";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6229944795BA7F1562206336 /* Pods-VPPDriversApp.debug.xcconfig */;
+			baseConfigurationReference = 6229944795BA7F1562206336 /* Pods-Dollapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = VPPDriversApp/VPPDriversApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Dollapp/Dollapp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = QZWWAVUAAZ;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = VPPDriversApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "VPP Drivers App";
+				INFOPLIST_FILE = Dollapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dollapp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,12 +600,12 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.convention.staffing;
-				PRODUCT_NAME = VPPDriversApp;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dollapp;
+				PRODUCT_NAME = Dollapp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "VPPDriversApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dollapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -615,18 +615,18 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB41D7427F23BB8A5EB8DF1A /* Pods-VPPDriversApp.release.xcconfig */;
+			baseConfigurationReference = CB41D7427F23BB8A5EB8DF1A /* Pods-Dollapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = VPPDriversApp/VPPDriversApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Dollapp/Dollapp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = QZWWAVUAAZ;
-				INFOPLIST_FILE = VPPDriversApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "VPP Drivers App";
+				INFOPLIST_FILE = Dollapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dollapp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,12 +639,12 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.convention.staffing;
-				PRODUCT_NAME = VPPDriversApp;
+				PRODUCT_BUNDLE_IDENTIFIER = io.dollapp;
+				PRODUCT_NAME = Dollapp;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "VPPDriversApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dollapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -824,7 +824,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "VPPDriversAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DollappTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -833,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VPPDriversApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dollapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -842,7 +842,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "VPPDriversApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Dollapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

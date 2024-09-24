@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.transparent,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
     flexDirection: 'row',
   },
   text: {fontSize: 16, fontWeight: '600'},

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Convention Staffing</string>
+	<string>Dollapp</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -37,14 +37,14 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We need access to your photo library to allow you to upload and share photos within the app. This enables you to personalize your profile and share moments with friends and family</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We required access to your contacts so we can find your friends</string>
 	<key>NSDocumentsFolderUsageDescription</key>
 	<string>App wants to access your documents folder</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is needed so Google Maps can be used</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We require access to your camera to enable you to take photos and videos directly from within the app. This allows you to capture memorable moments, create content, and engage with our features seamlessly</string>
-	<key>NSContactsUsageDescription</key>
-	<string>We required access to your contacts so we can find your friends</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

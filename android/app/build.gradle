@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.convention.staffing"
+    namespace "io.dollapp"
     defaultConfig {
-        applicationId "com.convention.staffing"
+        applicationId "io.dollapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
