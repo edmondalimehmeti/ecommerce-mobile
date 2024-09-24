@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 11,
     paddingVertical: 12,
-    borderRadius: 8,
   },
   label: {
     paddingTop: 5,

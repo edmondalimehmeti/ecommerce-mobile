@@ -66,6 +66,9 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
+		<string>Sora Bold.ttf</string>
+		<string>Sora Medium.ttf</string>
+		<string>Sora Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

@@ -11,7 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2A6F99B8A335436195FE1BDD /* Sora Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4073DE8D17D4B448C2F549B /* Sora Medium.ttf */; };
 		54A1EB7D2C162F4940052CDF /* Pods_Dollapp_DollappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD532620196603F9B2409667 /* Pods_Dollapp_DollappTests.framework */; };
+		58085731800B46C6A5D88A70 /* Sora Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C25067C199F54E868B9D8743 /* Sora Bold.ttf */; };
 		727F82EF27EE43B24A75D67E /* Pods_Dollapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA8F51E71BD65440082FC5 /* Pods_Dollapp.framework */; };
 		91367D5110F34CD0BC0E11FC /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E99203E1C6F4DC3BE1A5AF0 /* BootSplash.storyboard */; };
 		CE45957B2BBE1A2E00F318CE /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE4595682BBE1A2D00F318CE /* Fontisto.ttf */; };
@@ -35,6 +37,7 @@
 		CE45958D2BBE1A2E00F318CE /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE45957A2BBE1A2E00F318CE /* MaterialIcons.ttf */; };
 		CEA231152AB475FE00A0B586 /* CLanguageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA231132AB475FE00A0B586 /* CLanguageModule.m */; };
 		CEA231162AB475FE00A0B586 /* CLanguageModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA231142AB475FE00A0B586 /* CLanguageModule.swift */; };
+		D84BD8971F584A3F97245171 /* Sora Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3BBBBEBDB0A4F1EA24CF798 /* Sora Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,8 @@
 		6229944795BA7F1562206336 /* Pods-Dollapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp.debug.xcconfig"; path = "Target Support Files/Pods-Dollapp/Pods-Dollapp.debug.xcconfig"; sourceTree = "<group>"; };
 		9DAE58B11CFAB973E5B9C92B /* Pods-Dollapp-DollappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp-DollappTests.release.xcconfig"; path = "Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests.release.xcconfig"; sourceTree = "<group>"; };
 		B00816B462A0E2CC8F3824D2 /* Pods-Dollapp-DollappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp-DollappTests.debug.xcconfig"; path = "Target Support Files/Pods-Dollapp-DollappTests/Pods-Dollapp-DollappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3BBBBEBDB0A4F1EA24CF798 /* Sora Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora Regular.ttf"; path = "../src/assets/fonts/Sora Regular.ttf"; sourceTree = "<group>"; };
+		C25067C199F54E868B9D8743 /* Sora Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora Bold.ttf"; path = "../src/assets/fonts/Sora Bold.ttf"; sourceTree = "<group>"; };
 		CB41D7427F23BB8A5EB8DF1A /* Pods-Dollapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dollapp.release.xcconfig"; path = "Target Support Files/Pods-Dollapp/Pods-Dollapp.release.xcconfig"; sourceTree = "<group>"; };
 		CE4595682BBE1A2D00F318CE /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		CE4595692BBE1A2D00F318CE /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 		CEA231132AB475FE00A0B586 /* CLanguageModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLanguageModule.m; sourceTree = "<group>"; };
 		CEA231142AB475FE00A0B586 /* CLanguageModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLanguageModule.swift; sourceTree = "<group>"; };
 		CECDDB732AB9C6E00059A726 /* Dollapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Dollapp.entitlements; path = Dollapp/Dollapp.entitlements; sourceTree = "<group>"; };
+		E4073DE8D17D4B448C2F549B /* Sora Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora Medium.ttf"; path = "../src/assets/fonts/Sora Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FD532620196603F9B2409667 /* Pods_Dollapp_DollappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dollapp_DollappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -152,6 +158,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		569BC9A84CE142FFAD39CF86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C25067C199F54E868B9D8743 /* Sora Bold.ttf */,
+				E4073DE8D17D4B448C2F549B /* Sora Medium.ttf */,
+				B3BBBBEBDB0A4F1EA24CF798 /* Sora Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +187,7 @@
 				CE4595672BBE1A2D00F318CE /* Fonts */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				569BC9A84CE142FFAD39CF86 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -355,6 +373,9 @@
 				CE45958B2BBE1A2E00F318CE /* SimpleLineIcons.ttf in Resources */,
 				CE4595882BBE1A2E00F318CE /* Zocial.ttf in Resources */,
 				91367D5110F34CD0BC0E11FC /* BootSplash.storyboard in Resources */,
+				58085731800B46C6A5D88A70 /* Sora Bold.ttf in Resources */,
+				2A6F99B8A335436195FE1BDD /* Sora Medium.ttf in Resources */,
+				D84BD8971F584A3F97245171 /* Sora Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

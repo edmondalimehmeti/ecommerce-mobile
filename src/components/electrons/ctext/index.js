@@ -2,14 +2,14 @@ import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {colors} from '_theme';
 
-const text = ({txt, onPress, ...props}) => {
-  const style = onPress ? dStyles.link : dStyles.default;
+const text = ({txt, onPress, style, ...props}) => {
+  const defaultStyles = onPress ? dStyles.link : dStyles.default;
   return txt ? (
-    <Text style={style} allowFontScaling={false} {...props}>
+    <Text style={[defaultStyles, style]} allowFontScaling={false} {...props}>
       {txt}
     </Text>
   ) : (
-    <Text allowFontScaling={false} style={style} {...props} />
+    <Text allowFontScaling={false} style={[defaultStyles, style]} {...props} />
   );
 };
 
@@ -19,15 +19,16 @@ const CText = ({txt, onPress, disabled = false, ...props}) => {
       {text({txt, onPress, ...props})}
     </TouchableOpacity>
   ) : (
-    text({txt, onPress, ...props})
+    text({txt, style: onPress, ...props})
   );
 };
 export default CText;
 
 const dStyles = StyleSheet.create({
   default: {
-    fontSize: 16,
+    fontSize: 12,
     color: colors.black,
+    fontWeight: '500',
   },
   link: {
     fontSize: 16,

@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 50,
-    backgroundColor: colors.white,
+    backgroundColor: colors.transparent,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    borderColor: colors.grey4,
+    borderColor: colors.black,
     borderWidth: 1,
   },
-  text: {fontSize: 14, fontWeight: '600'},
+  text: {fontSize: 12, fontWeight: '600'},
   loader: {marginRight: 5},
   row: {
     height: '100%',

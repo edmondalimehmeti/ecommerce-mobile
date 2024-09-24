@@ -18,6 +18,7 @@ const CButton = ({
   xs = false,
   rounded = false,
   width,
+  containerStyle,
   ...props
 }) => {
   const backgroundColor = useMemo(() => {
@@ -41,7 +42,7 @@ const CButton = ({
   }, [disable, light]);
 
   const textStyles = useMemo(() => {
-    const fontSize = xs ? 12 : 14;
+    const fontSize = 12;
     return [styles.text, {fontSize: fontSize, color: textColor}];
   }, [textColor, xs]);
 
@@ -55,7 +56,7 @@ const CButton = ({
   }, [width, xs]);
 
   return (
-    <View style={props.containerStyle}>
+    <View style={containerStyle}>
       <CPressable
         {...props}
         outputMax={0.98}
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
   },
-  text: {fontSize: 16, fontWeight: '600'},
+  text: {fontSize: 16, fontWeight: '600', fontFamily: 'Sora Regular'},
   loader: {marginRight: 5},
   row: {
     height: '100%',
