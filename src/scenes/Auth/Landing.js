@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {Screen} from '_scenes/base';
-import LinearGradient from 'react-native-linear-gradient';
 import {colors} from '_theme/index';
 import {CButton, CButtonOutline, CText} from '_components/index';
 import AntDesignIcons from 'react-native-vector-icons/AntDesign';
 import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
 import Banner from '_assets/svg/banner.svg';
+import Gradient from '_components/atoms/Auth/Gradient';
 
 const LandingScreen = ({navigation}) => {
   const goToLogin = () => {
@@ -19,11 +19,7 @@ const LandingScreen = ({navigation}) => {
 
   return (
     <Screen>
-      <LinearGradient
-        colors={[colors.lightGreen, colors.white]}
-        start={{x: 0, y: 0.1}}
-        style={styles.container}
-        end={{x: 0, y: 0.8}}>
+      <Gradient style={styles.container}>
         <Image
           source={require('_assets/images/shopping.png')}
           style={styles.image}
@@ -59,7 +55,7 @@ const LandingScreen = ({navigation}) => {
           <Text style={styles.link} children="LOGIN" onPress={goToLogin} />
         </CText>
         <Banner />
-      </LinearGradient>
+      </Gradient>
     </Screen>
   );
 };

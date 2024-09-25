@@ -6,13 +6,14 @@ import Banner from '_assets/svg/banner.svg';
 import {CButton, CInput, CPasswordInput, CText} from '_components/index';
 import Gradient from '_components/atoms/Auth/Gradient';
 
-const LoginScreen = ({navigation}) => {
+const RegisterScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const login = () => {};
 
-  const goToRegister = () => {
+  const goToLogin = () => {
     navigation.replace('Register');
   };
 
@@ -22,18 +23,18 @@ const LoginScreen = ({navigation}) => {
         <Banner />
         <CText txt="WELCOME TO DOLLAP" />
         <View style={styles.inputContainer}>
+          <CInput value={name} onChangeText={setName} placeholder="NAME" />
           <CInput value={email} onChangeText={setEmail} placeholder="EMAIL" />
           <CPasswordInput
             value={password}
             onChangeText={setPassword}
             placeholder="PASSWORD"
           />
-          <CButton text="LOGIN" onPress={login} />
+          <CButton text="REGISTER" onPress={login} />
         </View>
-        <CText txt="FORGOT PASSWORD" />
         <CText style={{fontSize: 12}}>
           <CText txt="DON'T HAVE AN ACCOUNT?" style={styles.text} />{' '}
-          <Text style={styles.link} children="SIGNUP" onPress={goToRegister} />
+          <Text style={styles.link} children="SIGNUP" onPress={goToLogin} />
         </CText>
       </Gradient>
     </Screen>
@@ -52,4 +53,4 @@ const styles = StyleSheet.create({
   inputContainer: {width: 250, rowGap: 15},
 });
 
-export default LoginScreen;
+export default RegisterScreen;
