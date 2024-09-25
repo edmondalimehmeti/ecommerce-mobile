@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '_theme/';
-import BrandIcon from '_assets/icons/brand.svg';
+import HomeIcon from '_assets/icons/home.svg';
 import CarIcon from '_assets/icons/car.svg';
 import UserIcon from '_assets/icons/user.svg';
 import BriefcaseIcon from '_assets/icons/briefcase.svg';
@@ -9,16 +9,20 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useMemo} from 'react';
 import {Platform} from 'react-native';
-import useReduxSelector from '_utils/hooks/useReduxSelector';
+import HomeScreen from '_scenes/Home';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const HomeNav = createNativeStackNavigator();
-const ShiftsNav = createNativeStackNavigator();
-const ProfileNav = createNativeStackNavigator();
-const UnverifiedProfileNav = createNativeStackNavigator();
-const VerifiedProfileNav = createNativeStackNavigator();
+
+const HomeStack = () => {
+  return (
+    <HomeNav.Navigator screenOptions={{headerShown: false}}>
+      <HomeNav.Screen name="Home" component={HomeScreen} />
+    </HomeNav.Navigator>
+  );
+};
 
 const TabNavigator = () => {
   const {bottom} = useSafeAreaInsets();
@@ -37,11 +41,11 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         headerShown: false,
-        tabBarIcon: ({focused, color, size}) => {
-          const focusColor = focused ? colors.primary : colors.grey5;
+        tabBarIcon: ({focused}) => {
+          const focusColor = focused ? colors.white : colors.white;
           switch (route.name) {
             case 'Home':
-              return <BrandIcon height={25} width={25} color={focusColor} />;
+              return <HomeIcon height={25} width={25} color={focusColor} />;
             case 'PaidParking':
               return <CarIcon height={25} width={21} color={focusColor} />;
             case 'Profile':
@@ -52,21 +56,27 @@ const TabNavigator = () => {
               );
           }
         },
-        tabBarStyle: {backgroundColor: colors.white, ...platformStyles},
+        tabBarStyle: {backgroundColor: colors.black, ...platformStyles},
         headerStyle: {backgroundColor: colors.white},
         headerTintColor: colors.primary,
       })}
       tabBarOptions={{
-        activeTintColor: colors.primary,
-        inactiveTintColor: colors.grey5,
-      }}></Tab.Navigator>
+        activeTintColor: colors.white,
+        inactiveTintColor: colors.white,
+      }}>
+      <Tab.Screen name="Home" component={HomeStack} />
+    </Tab.Navigator>
   );
 };
 
 const AccountStack = () => {
   return (
     <Stack.Navigator headerMode="none" screenOptions={{headerShown: false}}>
-      <Stack.Screen name="TabNavigator" component={TabNavigator} />
+      <Stack.Screen
+        name="TabNavigator"
+        component={TabNavigator}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

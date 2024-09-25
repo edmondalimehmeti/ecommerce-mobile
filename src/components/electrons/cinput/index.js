@@ -19,23 +19,11 @@ const CInput = ({
   const [isFocused, setIsFocused] = useState(false);
 
   const inputContainer = useMemo(() => {
-    if (errorText) {
-      return {borderColor: colors.red, backgroundColor: colors.white};
-    }
     if (isFocused) {
-      return {borderColor: colors.primary, backgroundColor: colors.white};
+      return {borderColor: colors.black, backgroundColor: colors.white};
     }
-    if (value) {
-      return {borderColor: colors.grey4, backgroundColor: colors.white};
-    }
-    if (disabled) {
-      return {
-        borderColor: colors.grey3,
-        backgroundColor: colors.grey96,
-      };
-    }
-    return {borderColor: colors.grey3, backgroundColor: colors.white};
-  }, [value, isFocused, errorText, disabled]);
+    return {borderColor: colors.grey4, backgroundColor: colors.white};
+  }, [isFocused]);
 
   return (
     <View style={props.containerStyles}>
@@ -45,7 +33,7 @@ const CInput = ({
         <TextInput
           allowFontScaling={false}
           style={styles.input}
-          placeholderTextColor={colors.grey4}
+          placeholderTextColor={colors.black}
           autoCapitalize="none"
           value={value}
           onFocus={() => {

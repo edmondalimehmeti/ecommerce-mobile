@@ -3,17 +3,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import AccountStack from './AccountStack';
 import AuthenticationStack from './AuthenticationStack';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
-import messaging from '@react-native-firebase/messaging';
-import {useEffect} from 'react';
-import {PermissionsAndroid, Platform} from 'react-native';
 // import Workplace from '../workplace';
 
 const RootStack = createNativeStackNavigator();
 
 const SwitchNavigation = () => {
-  const accessToken = useReduxSelector('authentication.access_token', null);
-  const hasCompletedOnboarding = useReduxSelector(
-    'me.data.has_completed_onboarding',
+  const isAuthenticated = useReduxSelector(
+    'authentication.access_token',
     false,
   );
 
@@ -21,7 +17,7 @@ const SwitchNavigation = () => {
     <RootStack.Navigator
       headerMode="none"
       screenOptions={{animationEnabled: false, headerShown: false}}>
-      {accessToken && hasCompletedOnboarding ? (
+      {!isAuthenticated ? (
         <RootStack.Screen
           name="Account"
           component={AccountStack}

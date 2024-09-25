@@ -29,6 +29,7 @@ const dStyles = StyleSheet.create({
     fontSize: 12,
     color: colors.black,
     fontWeight: '500',
+    fontFamily: 'Sora Regular',
   },
   link: {
     fontSize: 16,
