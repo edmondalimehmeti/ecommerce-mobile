@@ -5140,6 +5140,7 @@ __metadata:
     react-native-reanimated-carousel: ^3.5.1
     react-native-safe-area-context: ^4.7.2
     react-native-screens: ^3.25.0
+    react-native-select-dropdown: ^4.0.1
     react-native-skeleton-placeholder: ^5.2.4
     react-native-snap-carousel: ^3.9.1
     react-native-star-rating-widget: ^1.8.0
@@ -10479,6 +10480,13 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: c1879eea8386f32c2655fedd79d41d8e25d2f4e7f883abbcad2c747ea7ac859f4a7f469475a519948e7c5ea317a7ebd8df92c6365627f6a5da1e4a208cece7e1
+  languageName: node
+  linkType: hard
+
+"react-native-select-dropdown@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "react-native-select-dropdown@npm:4.0.1"
+  checksum: 0f841ec81921e4f79959c883a1c83570e60b9fe28bbf075892aec75edf9bfd5506a7d71221fce388bf664a9d863785fc10a87dac3a27a9cdac248da909611ddd
   languageName: node
   linkType: hard
 

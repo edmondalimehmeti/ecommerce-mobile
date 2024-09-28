@@ -4,23 +4,13 @@ import {StatusBar, SafeAreaView} from 'react-native';
 import {CLoader} from '_components/index';
 import {colors} from '_theme/index';
 
-export const SafeAreaViewScreen = ({style, children, loading = false}) => {
-  return (
-    <>
-      <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
-      <SafeAreaView style={[styles.root]}>
-        <View style={[styles.container, style]}>{children}</View>
-      </SafeAreaView>
-      <CLoader loading={!!loading} />
-    </>
-  );
-};
 export const Screen = ({style, children, loading = false}) => {
   return (
     <>
-      <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View style={[styles.root]}>
-        <View style={[styles.container, style]}>{children}</View>
+        <SafeAreaView style={[styles.container, style]}>
+          {children}
+        </SafeAreaView>
       </View>
       <CLoader loading={!!loading} />
     </>

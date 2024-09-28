@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaViewScreen} from '_scenes/base';
+import {Screen} from '_scenes/base';
 import {CText} from '_components/index';
 import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
@@ -31,7 +31,7 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaViewScreen>
+    <Screen>
       <Header />
       <ScrollView style={{backgroundColor: colors.background}}>
         <View>
@@ -95,7 +95,7 @@ const HomeScreen = () => {
           </ScrollView>
         </View>
       </ScrollView>
-    </SafeAreaViewScreen>
+    </Screen>
   );
 };
 

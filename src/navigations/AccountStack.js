@@ -8,21 +8,54 @@ import BriefcaseIcon from '_assets/icons/briefcase.svg';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useMemo} from 'react';
-import {Dimensions, Platform, SafeAreaView, View} from 'react-native';
+import {
+  Dimensions,
+  Platform,
+  SafeAreaView,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import HomeScreen from '_scenes/Home';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {CText} from '_components/index';
+import HeartIcon from '_assets/icons/heart.svg';
+import CartIcon from '_assets/icons/cart.svg';
 import Drawer from '_components/Drawer';
+import ProfileIcon from '_assets/icons/avatar.svg';
+import StoreIcon from '_assets/icons/store.svg';
+import {CText} from '_components/index';
+import Search from '_scenes/Home/search';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
 const DrawerNav = createDrawerNavigator();
 const HomeNav = createNativeStackNavigator();
 
+const SellButton = (props) => {
+  return (
+    <TouchableWithoutFeedback {...props}>
+      <View
+        style={{
+          bottom: 30,
+          backgroundColor: colors.green,
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 80,
+          height: 80,
+          borderRadius: 40,
+        }}>
+        <StoreIcon />
+        <CText txt="Sell" style={{marginTop: 5, fontWeight: '300'}} />
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
+
 const HomeStack = () => {
   return (
     <HomeNav.Navigator screenOptions={{headerShown: false}}>
       <HomeNav.Screen name="Home" component={HomeScreen} />
+      <HomeNav.Screen name="Search" component={Search} />
     </HomeNav.Navigator>
   );
 };
@@ -49,10 +82,12 @@ const TabNavigator = () => {
           switch (route.name) {
             case 'Home':
               return <HomeIcon height={25} width={25} color={focusColor} />;
-            case 'PaidParking':
-              return <CarIcon height={25} width={21} color={focusColor} />;
+            case 'Favorites':
+              return <HeartIcon height={25} width={25} color={focusColor} />;
+            case 'Cart':
+              return <CartIcon height={25} width={25} color={focusColor} />;
             case 'Profile':
-              return <UserIcon height={20} width={20} color={focusColor} />;
+              return <ProfileIcon color={focusColor} />;
             default:
               return (
                 <BriefcaseIcon width={20} height={20} color={focusColor} />
@@ -68,6 +103,14 @@ const TabNavigator = () => {
         inactiveTintColor: colors.white,
       }}>
       <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Favorites" component={() => <View />} />
+      <Tab.Screen
+        name="Sell"
+        component={() => <View />}
+        options={{tabBarButton: SellButton}}
+      />
+      <Tab.Screen name="Cart" component={() => <View />} />
+      <Tab.Screen name="Profile" component={() => <View />} />
     </Tab.Navigator>
   );
 };
@@ -77,7 +120,11 @@ const AccountStack = () => {
   return (
     <DrawerNav.Navigator
       headerMode="none"
-      screenOptions={{headerShown: false, drawerStyle: {width}}}
+      screenOptions={{
+        drawerPosition: 'right',
+        headerShown: false,
+        drawerStyle: {width},
+      }}
       drawerContent={Drawer}>
       <DrawerNav.Screen
         name="TabNavigator"

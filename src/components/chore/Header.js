@@ -4,12 +4,15 @@ import {useNavigation} from '@react-navigation/native';
 import Logo from '_assets/svg/logo.svg';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Csearchinput from '_components/core/csearchinput';
+import {colors} from '_theme/index';
 
 const Header = () => {
   const navigation = useNavigation();
   const [qs, setQs] = useState('');
 
-  const search = () => {};
+  const search = () => {
+    navigation.navigate('Search');
+  };
 
   const openDrawer = () => {
     navigation.toggleDrawer();
@@ -33,6 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     columnGap: 40,
+    backgroundColor: colors.white,
   },
 });
 
