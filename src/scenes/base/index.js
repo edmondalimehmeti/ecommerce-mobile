@@ -28,6 +28,6 @@ export const Screen = ({style, children, loading = false}) => {
 };
 
 const styles = StyleSheet.create({
-  root: {flex: 1, backgroundColor: '#F6F6F2'},
+  root: {flex: 1, backgroundColor: colors.white},
   container: {flex: 1},
 });

@@ -8,12 +8,15 @@ import BriefcaseIcon from '_assets/icons/briefcase.svg';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useMemo} from 'react';
-import {Platform} from 'react-native';
+import {Dimensions, Platform, SafeAreaView, View} from 'react-native';
 import HomeScreen from '_scenes/Home';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {CText} from '_components/index';
+import Drawer from '_components/Drawer';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
+const DrawerNav = createDrawerNavigator();
 const HomeNav = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -68,16 +71,20 @@ const TabNavigator = () => {
     </Tab.Navigator>
   );
 };
+const {width} = Dimensions.get('window');
 
 const AccountStack = () => {
   return (
-    <Stack.Navigator headerMode="none" screenOptions={{headerShown: false}}>
-      <Stack.Screen
+    <DrawerNav.Navigator
+      headerMode="none"
+      screenOptions={{headerShown: false, drawerStyle: {width}}}
+      drawerContent={Drawer}>
+      <DrawerNav.Screen
         name="TabNavigator"
         component={TabNavigator}
         options={{headerShown: false}}
       />
-    </Stack.Navigator>
+    </DrawerNav.Navigator>
   );
 };
 

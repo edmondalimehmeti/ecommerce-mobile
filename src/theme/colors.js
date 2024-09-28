@@ -48,4 +48,5 @@ export default {
   attention99: '#EC7F0099',
   lightPurple: '#F1F2FF',
   purple: '#232A81',
+  background: '#F6F6F2',
 };
