@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {colors} from '_theme/index';
 import Csearchinput from '_components/core/csearchinput';
 import {CText} from '_components/index';
@@ -12,38 +12,33 @@ const Drawer = ({navigation}) => {
   const [qs, setQs] = useState('');
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Csearchinput
-          value={qs}
-          onChangeText={setQs}
-          containerStyles={{paddingHorizontal: 60, paddingTop: 10}}
-        />
-      </View>
-      <CText
-        txt="Account"
-        style={{paddingLeft: 20, fontSize: 18, marginTop: 20}}
+      <Csearchinput
+        value={qs}
+        onChangeText={setQs}
+        containerStyles={styles.input}
       />
+      <CText txt="Account" style={styles.text} />
       <View style={styles.itemContainer}>
-        <View style={styles.item}>
+        <TouchableOpacity style={styles.item}>
           <AvatarIcon color={colors.black} />
           <CText txt="Profile" style={styles.itemText} />
-        </View>
-        <View style={styles.item}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.item}>
           <CartIcon color={colors.black} />
           <CText txt="Buying" style={styles.itemText} />
-        </View>
-        <View style={styles.item}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.item}>
           <AvatarIcon color={colors.black} />
           <CText txt="Selling" style={styles.itemText} />
-        </View>
-        <View style={styles.item}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.item}>
           <HeartIcon color={colors.black} />
           <CText txt="Favorites" style={styles.itemText} />
-        </View>
-        <View style={styles.item}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.item}>
           <LogoutIcon color={colors.black} />
           <CText txt="Sign Out" style={styles.itemText} />
-        </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -66,6 +61,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   itemText: {fontSize: 18, fontWeight: '300', paddingLeft: 15},
+  input: {paddingHorizontal: 60, paddingTop: 10},
+  text: {paddingLeft: 20, fontSize: 18, marginTop: 20},
 });
 
 export default Drawer;
