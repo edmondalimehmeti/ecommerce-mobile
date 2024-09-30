@@ -7,6 +7,7 @@ import {colors} from '_theme/index';
 export const Screen = ({style, children, loading = false}) => {
   return (
     <>
+      <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <View style={[styles.root]}>
         <SafeAreaView style={[styles.container, style]}>
           {children}
