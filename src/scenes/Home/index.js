@@ -20,9 +20,11 @@ const renderItem = ({item}) => (
   </View>
 );
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+    {name: 'test', image: require('_assets/images/img_1.png')},
+  ]);
 
   const getData = async () => {};
 
@@ -33,7 +35,7 @@ const HomeScreen = () => {
   return (
     <Screen>
       <Header />
-      <ScrollView style={{backgroundColor: colors.background}}>
+      <ScrollView style={{backgroundColor: colors.background, paddingTop: 20}}>
         <View>
           <Carousel
             data={slides}
@@ -68,7 +70,10 @@ const HomeScreen = () => {
             contentContainerStyle={styles.scrollViewContainer}
             style={styles.scrollView}>
             {products.map((item) => (
-              <ProductItem item={item} />
+              <ProductItem
+                item={item}
+                onPress={() => navigation.navigate('Product')}
+              />
             ))}
           </ScrollView>
         </View>

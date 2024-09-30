@@ -2,8 +2,6 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {colors} from '_theme/';
 import HomeIcon from '_assets/icons/home.svg';
-import CarIcon from '_assets/icons/car.svg';
-import UserIcon from '_assets/icons/user.svg';
 import BriefcaseIcon from '_assets/icons/briefcase.svg';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -11,8 +9,6 @@ import {useMemo} from 'react';
 import {
   Dimensions,
   Platform,
-  SafeAreaView,
-  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -25,6 +21,7 @@ import ProfileIcon from '_assets/icons/avatar.svg';
 import StoreIcon from '_assets/icons/store.svg';
 import {CText} from '_components/index';
 import Search from '_scenes/Home/search';
+import ProductScreen from '_scenes/Home/product';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
@@ -56,6 +53,7 @@ const HomeStack = () => {
     <HomeNav.Navigator screenOptions={{headerShown: false}}>
       <HomeNav.Screen name="Home" component={HomeScreen} />
       <HomeNav.Screen name="Search" component={Search} />
+      <HomeNav.Screen name="Product" component={ProductScreen} />
     </HomeNav.Navigator>
   );
 };
