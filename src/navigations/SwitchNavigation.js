@@ -17,7 +17,7 @@ const SwitchNavigation = () => {
     <RootStack.Navigator
       headerMode="none"
       screenOptions={{animationEnabled: false, headerShown: false}}>
-      {!isAuthenticated ? (
+      {isAuthenticated ? (
         <RootStack.Screen
           name="Account"
           component={AccountStack}
