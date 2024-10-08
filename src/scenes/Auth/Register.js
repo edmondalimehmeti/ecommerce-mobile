@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {Screen} from '_scenes/base';
 import {colors} from '_theme/index';
-import {StyleSheet, Text, View} from 'react-native';
+import {Keyboard, StyleSheet, Text, View} from 'react-native';
 import Banner from '_assets/svg/banner.svg';
 import {CButton, CInput, CPasswordInput, CText} from '_components/index';
 import Gradient from '_components/atoms/Auth/Gradient';
 import useAPI from '_utils/hooks/useAPI';
 import CKeyboardAvoidingView from '_components/chore/keyboardAvoidingView';
 import CBack from '_components/chore/back';
+import EmailVerificationModal from '_components/atoms/Auth/EmailVerificationModal';
+import {handleRequestErrors, showSuccess} from '_utils/helpers/functions';
 
 const RegisterScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -15,18 +17,20 @@ const RegisterScreen = ({navigation}) => {
   const [name, setName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const {makeRequest} = useAPI();
+  const [showModal, setShowModal] = useState(false);
 
   const register = async () => {
+    Keyboard.dismiss();
     setIsLoading(true);
     try {
-      const res = await makeRequest('POST', '/auth/register', {
+      await makeRequest('POST', '/auth/register', {
         email,
         password,
         name,
       });
-      console.log(res);
+      setShowModal(true);
     } catch (e) {
-      console.log(e);
+      handleRequestErrors(e);
     } finally {
       setIsLoading(false);
     }
@@ -34,6 +38,21 @@ const RegisterScreen = ({navigation}) => {
 
   const goToLogin = () => {
     navigation.replace('Login');
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const onVerificationSuccess = (res) => {
+    closeModal();
+    showSuccess(res.message);
+    goToLogin();
+  };
+
+  const onVerificationError = (error) => {
+    closeModal();
+    handleRequestErrors(error);
   };
 
   return (
@@ -47,6 +66,7 @@ const RegisterScreen = ({navigation}) => {
             <CInput value={name} onChangeText={setName} placeholder="NAME" />
             <CInput
               value={email}
+              textContentType="oneTimeCode"
               keyboardType="email-address"
               onChangeText={setEmail}
               placeholder="EMAIL"
@@ -64,6 +84,12 @@ const RegisterScreen = ({navigation}) => {
           </CText>
         </CKeyboardAvoidingView>
       </Gradient>
+      <EmailVerificationModal
+        visible={showModal}
+        onClose={closeModal}
+        onSuccess={onVerificationSuccess}
+        onError={onVerificationError}
+      />
     </Screen>
   );
 };

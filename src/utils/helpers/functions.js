@@ -7,7 +7,8 @@ import DeviceInfo from 'react-native-device-info';
 import moment from 'moment/moment';
 
 export const showError = (msg = 'Diçka shkoi keq') => {
-  return Toast.show({
+  Toast.hide();
+  Toast.show({
     type: 'error',
     text1: msg,
     visibilityTime: msg?.length > 85 ? 6000 : 4000,
@@ -15,7 +16,8 @@ export const showError = (msg = 'Diçka shkoi keq') => {
 };
 
 export const showSuccess = (msg) => {
-  return Toast.show({
+  Toast.hide();
+  Toast.show({
     type: 'success',
     text1: msg,
     visibilityTime: msg?.length > 85 ? 6000 : 4000,
@@ -74,10 +76,10 @@ export const getInitials = (name = '') => {
 };
 
 export const handleRequestErrors = (e) => {
-  if (e?.response?.data?.detail && Array.isArray(e?.response?.data?.detail)) {
-    handleValidationErrors(e?.response?.data?.detail);
-  } else if (e?.response?.data?.detail) {
-    showError(e?.response?.data?.detail);
+  if (e?.response?.data?.message) {
+    showError(e?.response?.data?.message);
+  } else if (e?.response?.data?.error) {
+    showError(e?.response?.data?.error);
   } else {
     showError('Something went wrong');
   }
@@ -108,49 +110,6 @@ export const layoutAnimationY = () => {
   });
 };
 
-export const toastConfig = {
-  error: ({text1}) => (
-    <CToast
-      type={'error'}
-      textColor={colors.error}
-      backgroundColor={colors.lightRed}
-      text1={text1}
-    />
-  ),
-  success: ({text1}) => (
-    <CToast
-      type={'success'}
-      backgroundColor={colors.lightGreen}
-      textColor={colors.success}
-      text1={text1}
-    />
-  ),
-  info: ({text1}) => (
-    <CToast
-      type={'info'}
-      color={colors.primaryLight}
-      text1={text1}
-      icon={'information'}
-    />
-  ),
-  warning: ({text1}) => (
-    <CToast
-      type={'warning'}
-      color={colors.attention}
-      text1={text1}
-      icon={'alert'}
-    />
-  ),
-  transparent: ({text1}) => (
-    <CToast
-      type={'transparent'}
-      color={colors.black75}
-      text1={text1}
-      containerStyle={styles.transparentToast}
-    />
-  ),
-};
-
 export const smallDevice = () => {
   const screenHeight = Dimensions.get('window').height;
   const OSVersion = DeviceInfo?.getSystemVersion() || '';
@@ -159,42 +118,4 @@ export const smallDevice = () => {
   }
 
   return screenHeight < 670;
-};
-
-export const formatPhoneNumber = (value) => {
-  const cleanedValue = value.replace(/\D/g, '');
-
-  let formattedNumber = '';
-
-  if (cleanedValue.length === 0) {
-    formattedNumber = '';
-  } else if (cleanedValue.length <= 3) {
-    formattedNumber = `(${cleanedValue}`;
-  } else if (cleanedValue.length <= 6) {
-    formattedNumber = `(${cleanedValue.slice(0, 3)}) ${cleanedValue.slice(3)}`;
-  } else if (cleanedValue.length <= 10) {
-    formattedNumber = `(${cleanedValue.slice(0, 3)}) ${cleanedValue.slice(
-      3,
-      6,
-    )}-${cleanedValue.slice(6)}`;
-  } else {
-    formattedNumber = `${cleanedValue.slice(0, 1)} (${cleanedValue.slice(
-      1,
-      4,
-    )}) ${cleanedValue.slice(4, 7)}-${cleanedValue.slice(7, 11)}`;
-  }
-
-  return formattedNumber;
-};
-
-export const pairArray = (array) => {
-  let pairs = [];
-  for (let i = 0; i < array.length; i += 2) {
-    if (array[i + 1]) {
-      pairs.push([array[i], array[i + 1]]);
-    } else {
-      pairs.push([array[i]]);
-    }
-  }
-  return pairs;
 };

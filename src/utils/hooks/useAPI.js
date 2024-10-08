@@ -21,7 +21,7 @@ const useAPI = () => {
         console.log(`SUCCESS ${url} response:`, response);
         return response.data;
       } catch (error) {
-        console.log(`ERROR ${url}:`, error?.response);
+        console.log(`ERROR ${url}:`, error);
         return Promise.reject(error);
       }
     },

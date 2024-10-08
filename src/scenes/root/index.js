@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import AppNavigator from '_navigations/index';
-import {toastConfig} from '_utils/helpers/functions';
 import Toast from 'react-native-toast-message';
 import {CLoader} from '_components/index';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
