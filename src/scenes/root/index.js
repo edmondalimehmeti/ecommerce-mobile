@@ -6,14 +6,16 @@ import Toast from 'react-native-toast-message';
 import {CLoader} from '_components/index';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const RootScreen = () => {
   const showLoader = useReduxSelector('globalLoaderState.show', false);
+  const {top} = useSafeAreaInsets();
 
   return (
     <GestureHandlerRootView style={styles.flex1}>
       <AppNavigator />
-      <Toast topOffset={40} config={toastConfig} setRef={Toast.setRootRef} />
+      <Toast topOffset={top} setRef={Toast.setRootRef} />
       <CLoader loading={showLoader} />
     </GestureHandlerRootView>
   );
