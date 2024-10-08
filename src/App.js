@@ -5,6 +5,7 @@ import RootScreen from '_scenes/root';
 import RNBootSplash from 'react-native-bootsplash';
 import SplashScreen from '_scenes/splash';
 import {store, persistor} from '_redux/stores';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   useEffect(() => {
@@ -14,7 +15,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={<SplashScreen />} persistor={persistor}>
-        <RootScreen />
+        <SafeAreaProvider>
+          <RootScreen />
+        </SafeAreaProvider>
       </PersistGate>
     </Provider>
   );
