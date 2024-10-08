@@ -7,7 +7,7 @@ const Gradient = ({children, style}) => {
     <LinearGradient
       colors={[colors.lightGreen, colors.white]}
       start={{x: 0, y: 0.1}}
-      style={style}
+      style={[{flex: 1}, style]}
       end={{x: 0, y: 0.8}}>
       {children}
     </LinearGradient>
