@@ -3,7 +3,6 @@ import {API_URL} from '../config';
 import _ from 'lodash';
 import {logout} from '_redux/app/actions';
 import NavigationService from '_navigations/navigationService';
-import {store} from '_redux/stores';
 
 export default async (
   method,
