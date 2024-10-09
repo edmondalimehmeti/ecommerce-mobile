@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Screen} from '_scenes/base';
 import {colors} from '_theme/index';
-import {Keyboard, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {Keyboard, StyleSheet, Text, View} from 'react-native';
 import Banner from '_assets/svg/banner.svg';
 import {CButton, CInput, CPasswordInput, CText} from '_components/index';
 import Gradient from '_components/atoms/Auth/Gradient';
@@ -11,7 +11,6 @@ import {authentication} from '_redux/app/actions';
 import {handleRequestErrors} from '_utils/helpers/functions';
 import CBack from '_components/chore/back';
 import CKeyboardAvoidingView from '_components/chore/keyboardAvoidingView';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -19,7 +18,6 @@ const LoginScreen = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const {makeRequest} = useAPI();
   const dispatch = useDispatch();
-  const {top} = useSafeAreaInsets();
 
   const login = async () => {
     Keyboard.dismiss();
@@ -29,8 +27,7 @@ const LoginScreen = ({navigation}) => {
         email,
         password,
       });
-      // dispatch(authentication(res));
-      console.log(res);
+      dispatch(authentication(res.tokenData));
     } catch (e) {
       handleRequestErrors(e);
     } finally {
@@ -62,7 +59,7 @@ const LoginScreen = ({navigation}) => {
               onChangeText={setPassword}
               placeholder="PASSWORD"
             />
-            <CButton text="LOGIN" onPress={login} />
+            <CButton text="LOGIN" onPress={login} loading={loading} />
           </View>
           <CText txt="FORGOT PASSWORD" />
           <CText style={{fontSize: 12}}>

@@ -41,13 +41,16 @@ const RegisterScreen = ({navigation}) => {
   };
 
   const closeModal = () => {
+    Keyboard.dismiss();
     setShowModal(false);
   };
 
   const onVerificationSuccess = (res) => {
     closeModal();
-    showSuccess(res.message);
-    goToLogin();
+    setTimeout(() => {
+      showSuccess(res.message);
+      goToLogin();
+    }, 500);
   };
 
   const onVerificationError = (error) => {
@@ -89,6 +92,7 @@ const RegisterScreen = ({navigation}) => {
         onClose={closeModal}
         onSuccess={onVerificationSuccess}
         onError={onVerificationError}
+        email={email}
       />
     </Screen>
   );

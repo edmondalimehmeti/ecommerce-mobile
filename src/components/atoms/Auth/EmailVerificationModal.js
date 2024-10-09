@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
-import {Keyboard, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Keyboard, StyleSheet} from 'react-native';
 import {CButton, CInput, CText, CTitle} from '_components/index';
 import {colors} from '_theme/index';
-import Modal from 'react-native-modal';
-import CloseIcon from '_assets/icons/close.svg';
 import useAPI from '_utils/hooks/useAPI';
+import CModal from '_components/electrons/cmodal';
 
-const EmailVerificationModal = ({visible, onClose, onSuccess, onError}) => {
+const EmailVerificationModal = ({
+  visible,
+  onClose,
+  onSuccess,
+  onError,
+  email,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
   const {makeRequest} = useAPI();
   const [code, setCode] = useState('');
@@ -15,7 +20,10 @@ const EmailVerificationModal = ({visible, onClose, onSuccess, onError}) => {
     Keyboard.dismiss();
     setIsLoading(true);
     try {
-      const res = await makeRequest('POST', '/auth/deactivate-2fa', {code});
+      const res = await makeRequest('POST', '/auth/confirm', {
+        confirmationCode: code,
+        email,
+      });
       onSuccess && onSuccess(res);
     } catch (e) {
       onError && onError(e);
@@ -25,65 +33,39 @@ const EmailVerificationModal = ({visible, onClose, onSuccess, onError}) => {
   };
 
   return (
-    <Modal
-      isVisible={visible}
-      style={styles.root}
-      swipeDirection="down"
-      avoidKeyboard
-      onSwipeComplete={onClose}
-      onBackdropPress={onClose}>
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <CTitle txt="Turn off authentication app?" />
-          <TouchableOpacity style={styles.closeContainer} onPress={onClose}>
-            <CloseIcon color={colors.grey6} />
-          </TouchableOpacity>
-        </View>
-        <CInput
-          containerStyles={styles.mt20}
-          label="Enter Code"
-          value={code}
-          onChangeText={(value) => setCode(value)}
-          maxLength={6}
-          keyboardType="number-pad"
-        />
-        <CButton
-          containerStyle={styles.mt20}
-          text="Confirm"
-          loading={isLoading}
-          disable={code.length < 6}
-          onPress={deactivateTwoFactorAuth}
-        />
-      </View>
-    </Modal>
+    <CModal containerStyle={styles.container} show={visible} onClose={onClose}>
+      <CTitle txt="Enter Verification Code" />
+      <CText
+        style={styles.subtext}
+        txt={`We’ve just sent an email to you at ${email}. Enter the code to verify your account.`}
+      />
+      <CInput
+        containerStyles={styles.mt20}
+        label="Enter code"
+        value={code}
+        onChangeText={(value) => setCode(value)}
+        maxLength={6}
+        keyboardType="number-pad"
+      />
+      <CButton
+        containerStyle={styles.mt20}
+        text="Confirm"
+        loading={isLoading}
+        disable={code.length < 6}
+        onPress={deactivateTwoFactorAuth}
+      />
+    </CModal>
   );
 };
 
 const styles = StyleSheet.create({
   root: {justifyContent: 'flex-end', margin: 0},
   container: {
-    backgroundColor: colors.white,
     paddingHorizontal: 20,
-    paddingTop: 20,
     paddingBottom: 40,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
   },
-  closeContainer: {
-    backgroundColor: colors.lightestGrey,
-    padding: 6,
-    borderRadius: 10,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    columnGap: 10,
-  },
-  text: {marginTop: 20, fontSize: 16},
-  paragraph: {marginTop: 20, fontSize: 16},
-  flex1: {flex: 1},
   mt20: {marginTop: 20},
+  subtext: {marginTop: 5, color: colors.grey5, fontSize: 16},
 });
 
 export default EmailVerificationModal;

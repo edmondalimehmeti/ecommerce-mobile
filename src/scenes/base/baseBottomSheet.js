@@ -1,7 +1,6 @@
 import React, {useEffect, useMemo} from 'react';
 import {ActivityIndicator, Platform, StyleSheet, View} from 'react-native';
 import {colors} from '_theme/';
-import I18n from '_i18n/index';
 import {CText} from '_components/index';
 import {layoutAnimationY} from '_utils/helpers/functions';
 
@@ -14,7 +13,7 @@ const SheetLoader = () => (
       })}
       color={colors.primaryLight}
     />
-    <CText txt={I18n.please_wait} style={styles.loaderText} />
+    <CText txt="Please wait" style={styles.loaderText} />
   </View>
 );
 

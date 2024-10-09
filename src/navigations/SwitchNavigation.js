@@ -8,10 +8,7 @@ import useReduxSelector from '_utils/hooks/useReduxSelector';
 const RootStack = createNativeStackNavigator();
 
 const SwitchNavigation = () => {
-  const isAuthenticated = useReduxSelector(
-    'authentication.access_token',
-    false,
-  );
+  const isAuthenticated = useReduxSelector('authentication.accessToken', false);
 
   return (
     <RootStack.Navigator
