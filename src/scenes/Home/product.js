@@ -30,6 +30,7 @@ const ProductScreen = ({route}) => {
   const productId = route?.params?.productId;
   const {makeRequest} = useAPI();
   const [loading, setLoading] = useState(false);
+  const [size, setSize] = useState(null);
 
   const getProduct = async () => {
     setLoading(true);
@@ -43,13 +44,17 @@ const ProductScreen = ({route}) => {
     }
   };
 
+  const addToBasket = () => {
+    console.log({productId, size});
+  };
+
   useEffect(() => {
     getProduct();
   }, []);
 
   return (
     <SafeAreaViewScreen style={{flex: 1}} loading={loading}>
-      <Header />
+      <Header backNavigation />
       <ScrollView style={styles.root}>
         <Carousel
           data={product.image_urls || []}
@@ -76,7 +81,11 @@ const ProductScreen = ({route}) => {
               style={styles.condition}
             />
           </View>
-          <CButton text="Add to cart" containerStyle={{marginTop: 20}} />
+          <CButton
+            text="Add to basket"
+            containerStyle={{marginTop: 20}}
+            onPress={addToBasket}
+          />
           <View style={{marginTop: 20}}>
             <CText txt="Product Detail" style={styles.title} />
             <CText txt={product.description} style={styles.description} />
@@ -93,7 +102,14 @@ const ProductScreen = ({route}) => {
 
 const styles = StyleSheet.create({
   root: {backgroundColor: colors.background, flex: 1},
-  subContainer: {marginTop: 20, paddingHorizontal: 20, flex: 1},
+  subContainer: {
+    marginTop: 20,
+    paddingBottom: 20,
+    marginBottom: 10,
+    marginHorizontal: 20,
+    flex: 1,
+    borderBottomWidth: 2,
+  },
   title: {fontWeight: '700', fontSize: 18},
   sizeContainer: {
     flexDirection: 'row',
