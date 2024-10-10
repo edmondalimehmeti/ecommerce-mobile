@@ -5,10 +5,10 @@ import {CText} from '_components/index';
 const Item = ({item, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Image source={item.image} style={styles.image} />
+      <Image source={{uri: item.image_urls[0]}} style={styles.image} />
       <CText txt={item.name} style={styles.name} />
-      <CText txt="Size L" style={{fontWeight: '300', marginTop: 2}} />
-      <CText txt="5.00 €" style={styles.price} />
+      {item.size && <CText txt={`Size ${item.size}`} style={styles.size} />}
+      {item.price && <CText txt={`${item.price} €`} style={styles.price} />}
     </TouchableOpacity>
   );
 };
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
+  size: {fontWeight: '300', marginTop: 2},
 });
 
 export default Item;

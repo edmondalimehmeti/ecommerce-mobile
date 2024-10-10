@@ -23,7 +23,7 @@ export default async (
 
   const getAuth = () => {
     const state = getState();
-    const accessToken = _.get(state, 'authentication.access_token', null);
+    const accessToken = _.get(state, 'authentication.accessToken', null);
     if (!accessToken) {
       return null;
     }

@@ -7,9 +7,12 @@ import AvatarIcon from '_assets/icons/avatar.svg';
 import CartIcon from '_assets/icons/cart.svg';
 import HeartIcon from '_assets/icons/heart.svg';
 import LogoutIcon from '_assets/icons/logout.svg';
+import {useDispatch} from 'react-redux';
+import {logout} from '_redux/app/actions';
 
 const Drawer = ({navigation}) => {
   const [qs, setQs] = useState('');
+  const dispatch = useDispatch();
   return (
     <SafeAreaView style={styles.container}>
       <Csearchinput
@@ -35,7 +38,9 @@ const Drawer = ({navigation}) => {
           <HeartIcon color={colors.black} />
           <CText txt="Favorites" style={styles.itemText} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => dispatch(logout())}>
           <LogoutIcon color={colors.black} />
           <CText txt="Sign Out" style={styles.itemText} />
         </TouchableOpacity>

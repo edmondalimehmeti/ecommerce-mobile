@@ -1,11 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {Screen} from '_scenes/base';
+import {SafeAreaViewScreen} from '_scenes/base';
 import {CText} from '_components/index';
-import {Dimensions, Image, ScrollView, StyleSheet, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {colors} from '_theme/index';
 import ProductItem from '_components/atoms/Product/Item';
 import Header from '_components/chore/Header';
+import useAPI from '_utils/hooks/useAPI';
+import {handleRequestErrors} from '_utils/helpers/functions';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -22,20 +31,38 @@ const renderItem = ({item}) => (
 
 const HomeScreen = ({navigation}) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [products, setProducts] = useState([
-    {name: 'test', image: require('_assets/images/img_1.png')},
-  ]);
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [topSellerProducts, setTopSellerProducts] = useState([]);
+  const {makeRequest} = useAPI();
+  const [loading, setLoading] = useState(false);
 
-  const getData = async () => {};
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const res = await makeRequest('GET', '/home');
+      setCategories(res.categories);
+      setRecommendedProducts(res.recommendedProducts);
+      setTopSellerProducts(res.topSellerProducts);
+    } catch (e) {
+      handleRequestErrors(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     getData();
   }, []);
 
+  const goToProduct = (productId) => {
+    navigation.navigate('Product', {productId});
+  };
+
   return (
-    <Screen>
+    <SafeAreaViewScreen loading={loading}>
       <Header />
-      <ScrollView style={{backgroundColor: colors.background, paddingTop: 20}}>
+      <ScrollView style={styles.container}>
         <View>
           <Carousel
             data={slides}
@@ -68,12 +95,19 @@ const HomeScreen = ({navigation}) => {
           <ScrollView
             horizontal
             contentContainerStyle={styles.scrollViewContainer}
-            style={styles.scrollView}>
-            {products.map((item) => (
-              <ProductItem
-                item={item}
-                onPress={() => navigation.navigate('Product')}
-              />
+            style={styles.scrollView}
+            showsHorizontalScrollIndicator={false}>
+            {categories.map((item) => (
+              <TouchableOpacity>
+                <Image
+                  source={require('_assets/images/img_1.png')}
+                  style={styles.image}
+                />
+                <CText
+                  txt={item.category_name.toUpperCase()}
+                  style={styles.categoryName}
+                />
+              </TouchableOpacity>
             ))}
           </ScrollView>
         </View>
@@ -82,9 +116,13 @@ const HomeScreen = ({navigation}) => {
           <ScrollView
             horizontal
             contentContainerStyle={styles.scrollViewContainer}
+            showsHorizontalScrollIndicator={false}
             style={styles.scrollView}>
-            {products.map((item) => (
-              <ProductItem item={item} />
+            {recommendedProducts.map((item) => (
+              <ProductItem
+                item={item}
+                onPress={() => goToProduct(item.product_id)}
+              />
             ))}
           </ScrollView>
         </View>
@@ -94,17 +132,21 @@ const HomeScreen = ({navigation}) => {
             horizontal
             contentContainerStyle={styles.scrollViewContainer}
             style={styles.scrollView}>
-            {products.map((item) => (
-              <ProductItem item={item} />
+            {topSellerProducts.map((item) => (
+              <ProductItem
+                item={item}
+                onPress={() => goToProduct(item.product_id)}
+              />
             ))}
           </ScrollView>
         </View>
       </ScrollView>
-    </Screen>
+    </SafeAreaViewScreen>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {backgroundColor: colors.background},
   dotsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -123,8 +165,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   scrollView: {marginTop: 20, marginHorizontal: 20},
-  scrollViewContainer: {columnGap: 10},
-  section: {marginTop: 40},
+  scrollViewContainer: {columnGap: 20},
+  section: {marginTop: 40, flex: 1},
+  image: {width: 150, height: 150, objectFit: 'cover'},
+  categoryName: {textAlign: 'center', marginTop: 5, fontWeight: '300'},
 });
 
 export default HomeScreen;

@@ -4,6 +4,7 @@ import Header from '_components/chore/Header';
 import {
   Dimensions,
   Image,
+  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -32,8 +33,8 @@ const ProductScreen = () => {
   const [product, setProduct] = useState({});
   return (
     <Screen style={styles.root}>
-      <Header />
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <Header />
         <ScrollView>
           <Carousel
             data={slides}
@@ -68,7 +69,7 @@ const ProductScreen = () => {
             </CText>
           </View>
         </ScrollView>
-      </View>
+      </SafeAreaView>
     </Screen>
   );
 };

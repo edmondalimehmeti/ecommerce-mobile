@@ -41,16 +41,14 @@ const RegisterScreen = ({navigation}) => {
   };
 
   const closeModal = () => {
-    Keyboard.dismiss();
     setShowModal(false);
   };
 
-  const onVerificationSuccess = (res) => {
+  const onVerificationSuccess = () => {
     closeModal();
     setTimeout(() => {
-      showSuccess(res.message);
       goToLogin();
-    }, 500);
+    }, 800);
   };
 
   const onVerificationError = (error) => {
