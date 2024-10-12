@@ -6,6 +6,7 @@ import RNBootSplash from 'react-native-bootsplash';
 import SplashScreen from '_scenes/splash';
 import {store, persistor} from '_redux/stores';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import QueryStringProvider from '_utils/providers/QueryStringProvider';
 
 const App = () => {
   useEffect(() => {
@@ -16,7 +17,9 @@ const App = () => {
     <Provider store={store}>
       <PersistGate loading={<SplashScreen />} persistor={persistor}>
         <SafeAreaProvider>
-          <RootScreen />
+          <QueryStringProvider>
+            <RootScreen />
+          </QueryStringProvider>
         </SafeAreaProvider>
       </PersistGate>
     </Provider>

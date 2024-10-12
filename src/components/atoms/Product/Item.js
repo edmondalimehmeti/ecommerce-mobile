@@ -4,7 +4,13 @@ import {CText} from '_components/index';
 import Icon from 'react-native-vector-icons/Entypo';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
 
-const Item = ({item, onPress, showFavoriteIcon = false}) => {
+const Item = ({
+  item,
+  onPress,
+  showFavoriteIcon = false,
+  imageStyles,
+  ...props
+}) => {
   const favoriteProducts = useReduxSelector('favorites.products', []);
 
   const isFavoriteProduct = useMemo(
@@ -17,8 +23,11 @@ const Item = ({item, onPress, showFavoriteIcon = false}) => {
   };
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Image source={{uri: item.image_urls[0]}} style={styles.image} />
+    <TouchableOpacity onPress={onPress} {...props}>
+      <Image
+        source={{uri: item.image_urls[0]}}
+        style={[styles.image, imageStyles]}
+      />
       <CText txt={item.name} style={styles.name} />
       {item.size && <CText txt={`Size ${item.size}`} style={styles.size} />}
       {item.price && <CText txt={`${item.price} €`} style={styles.price} />}
@@ -35,7 +44,7 @@ const Item = ({item, onPress, showFavoriteIcon = false}) => {
 };
 
 const styles = StyleSheet.create({
-  image: {width: 150, height: 150},
+  image: {width: 150, aspectRatio: 1},
   name: {fontWeight: '700', fontSize: 16, marginTop: 5},
   price: {
     color: '#006349',

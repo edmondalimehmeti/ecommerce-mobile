@@ -1,8 +1,9 @@
 import React from 'react';
 import SearchIcon from '_assets/icons/search.svg';
 import Cinput from '_components/electrons/cinput';
+import {TouchableOpacity} from 'react-native';
 
-const Index = ({value, onChangeText, ...props}) => {
+const Index = ({value, onChangeText, onSearch, ...props}) => {
   return (
     <Cinput
       containerStyles={[{flex: 1}, props.containerStyles]}
@@ -10,7 +11,11 @@ const Index = ({value, onChangeText, ...props}) => {
       value={value}
       onChangeText={onChangeText}
       placeholder="Search for ..."
-      appendIcon={<SearchIcon />}
+      appendIcon={
+        <TouchableOpacity onPress={onSearch}>
+          <SearchIcon />
+        </TouchableOpacity>
+      }
       {...props}
     />
   );

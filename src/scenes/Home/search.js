@@ -1,20 +1,51 @@
-import React, {useState} from 'react';
-import {Screen} from '_scenes/base';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import React, {useContext, useEffect, useRef, useState} from 'react';
+import {SafeAreaViewScreen} from '_scenes/base';
+import {FlatList, ScrollView, StyleSheet, View} from 'react-native';
 import {colors} from '_theme/index';
-import Csearchinput from '_components/core/csearchinput';
 import Cselect from '_components/core/cselect';
 import FilterIcon from '_assets/icons/filter.svg';
 import {CText} from '_components/index';
 import Header from '_components/chore/Header';
+import {QueryStringContext} from '_utils/providers/QueryStringProvider';
+import useAPI from '_utils/hooks/useAPI';
+import ProductItem from '_components/atoms/Product/Item';
+import {handleRequestErrors} from '_utils/helpers/functions';
+import {stringify} from 'query-string/base';
 
-const Search = () => {
+const Search = ({navigation}) => {
+  const [qs, setQs] = useState('');
   const [condition, setCondition] = useState('');
   const [size, setSize] = useState('');
   const [price, setPrice] = useState(0);
+  const [results, setResults] = useState([]);
+  const {makeRequest} = useAPI();
+  const [loading, setLoading] = useState(false);
+  const {queryString} = useContext(QueryStringContext);
+
+  const getData = async () => {
+    setLoading(true);
+    try {
+      const params = stringify({qs: queryString});
+      const res = await makeRequest('GET', `/products?${params}`);
+      setResults(res);
+    } catch (e) {
+      handleRequestErrors(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const goToProductScreen = (productId) => {
+    navigation.navigate('Product', {productId});
+  };
+
   return (
-    <Screen>
-      <Header />
+    <SafeAreaViewScreen loading={loading}>
+      <Header showBackButton />
       <View style={styles.container}>
         <View style={styles.filterContainer}>
           <Cselect data={[]} renderButton={<FilterIcon />} />
@@ -23,9 +54,24 @@ const Search = () => {
           <Cselect data={[]} renderButton={<CText txt="Price" />} />
         </View>
         <CText txt="1000+ products found" style={{marginTop: 20}} />
-        <ScrollView></ScrollView>
+        <FlatList
+          data={results}
+          numColumns={2}
+          style={{marginTop: 20}}
+          renderItem={({item}) => (
+            <ProductItem
+              item={item}
+              showFavoriteIcon
+              style={{flex: 1}}
+              imageStyles={{width: '100%'}}
+              onPress={() => goToProductScreen(item.product_id)}
+            />
+          )}
+          columnWrapperStyle={styles.row}
+          contentContainerStyle={{rowGap: 10}}
+        />
       </View>
-    </Screen>
+    </SafeAreaViewScreen>
   );
 };
 
@@ -39,6 +85,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    columnGap: 10,
+  },
+  row: {
+    justifyContent: 'space-between',
     columnGap: 10,
   },
 });
