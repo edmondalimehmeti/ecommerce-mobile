@@ -4,6 +4,7 @@ import {CText} from '_components/index';
 import {
   Dimensions,
   Image,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -24,9 +25,12 @@ const slides = [
 ];
 
 const renderItem = ({item}) => (
-  <View>
-    <Image source={item} style={{width: SCREEN_WIDTH, height: 340}} />
-  </View>
+  <TouchableOpacity>
+    <Image
+      source={{uri: item.imageurl}}
+      style={{width: SCREEN_WIDTH, height: 340, objectFit: 'cover'}}
+    />
+  </TouchableOpacity>
 );
 
 const HomeScreen = ({navigation}) => {
@@ -36,6 +40,8 @@ const HomeScreen = ({navigation}) => {
   const [topSellerProducts, setTopSellerProducts] = useState([]);
   const {makeRequest} = useAPI();
   const [loading, setLoading] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [carouselItems, setCarouselItems] = useState([]);
 
   const getData = async () => {
     setLoading(true);
@@ -44,10 +50,25 @@ const HomeScreen = ({navigation}) => {
       setCategories(res.categories);
       setRecommendedProducts(res.recommendedProducts);
       setTopSellerProducts(res.topSellerProducts);
+      setCarouselItems(res.carouselItems);
     } catch (e) {
       handleRequestErrors(e);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const getDataOnRefresh = async () => {
+    setRefreshing(true);
+    try {
+      const res = await makeRequest('GET', '/home');
+      setCategories(res.categories);
+      setRecommendedProducts(res.recommendedProducts);
+      setTopSellerProducts(res.topSellerProducts);
+    } catch (e) {
+      handleRequestErrors(e);
+    } finally {
+      setRefreshing(false);
     }
   };
 
@@ -62,10 +83,18 @@ const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaViewScreen loading={loading}>
       <Header />
-      <ScrollView style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={getDataOnRefresh}
+            tintColor={colors.black}
+          />
+        }>
         <View>
           <Carousel
-            data={slides}
+            data={carouselItems}
             renderItem={renderItem}
             onSnapToItem={(index) => setActiveIndex(index)}
             loop
@@ -75,7 +104,7 @@ const HomeScreen = ({navigation}) => {
             itemWidth={SCREEN_WIDTH}
           />
           <View style={styles.dotsContainer}>
-            {slides.map((item, index) => (
+            {carouselItems.map((item, index) => (
               <View
                 style={[
                   styles.dot,
@@ -97,8 +126,8 @@ const HomeScreen = ({navigation}) => {
             contentContainerStyle={styles.scrollViewContainer}
             style={styles.scrollView}
             showsHorizontalScrollIndicator={false}>
-            {categories.map((item) => (
-              <TouchableOpacity>
+            {categories.map((item, index) => (
+              <TouchableOpacity key={index}>
                 <Image
                   source={require('_assets/images/img_1.png')}
                   style={styles.image}
@@ -118,9 +147,10 @@ const HomeScreen = ({navigation}) => {
             contentContainerStyle={styles.scrollViewContainer}
             showsHorizontalScrollIndicator={false}
             style={styles.scrollView}>
-            {recommendedProducts.map((item) => (
+            {recommendedProducts.map((item, index) => (
               <ProductItem
                 item={item}
+                key={index}
                 onPress={() => goToProduct(item.product_id)}
               />
             ))}
@@ -130,11 +160,12 @@ const HomeScreen = ({navigation}) => {
           <CText txt="TOP SELLER OF THE MONTH" style={styles.sectionTitle} />
           <ScrollView
             horizontal
-            contentContainerStyle={styles.scrollViewContainer}
+            // contentContainerStyle={styles.scrollViewContainer}
             style={styles.scrollView}>
-            {topSellerProducts.map((item) => (
+            {topSellerProducts.map((item, index) => (
               <ProductItem
                 item={item}
+                key={index}
                 onPress={() => goToProduct(item.product_id)}
               />
             ))}

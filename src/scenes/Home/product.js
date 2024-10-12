@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaViewScreen, Screen} from '_scenes/base';
+import {SafeAreaViewScreen} from '_scenes/base';
 import Header from '_components/chore/Header';
 import {
   Dimensions,
@@ -53,8 +53,8 @@ const ProductScreen = ({route}) => {
   }, []);
 
   return (
-    <SafeAreaViewScreen style={{flex: 1}} loading={loading}>
-      <Header backNavigation />
+    <SafeAreaViewScreen loading={loading}>
+      <Header showBackButton />
       <ScrollView style={styles.root}>
         <Carousel
           data={product.image_urls || []}
@@ -69,8 +69,11 @@ const ProductScreen = ({route}) => {
           <CText txt={product.name} style={styles.title} />
           <View style={styles.sizeContainer}>
             <CText txt="Size" style={styles.sizeLabel} />
-            {sizes.map((size) => (
-              <TouchableOpacity style={{padding: 10, borderWidth: 1}}>
+            {sizes.map((size, index) => (
+              <TouchableOpacity
+                style={styles.size}
+                key={index}
+                onPress={() => setSize(size)}>
                 <CText txt={size} style={{fontSize: 14}} />
               </TouchableOpacity>
             ))}
@@ -121,6 +124,7 @@ const styles = StyleSheet.create({
   seller: {marginTop: 20, fontSize: 16},
   sizeLabel: {fontSize: 16},
   condition: {fontSize: 14, fontWeight: '300'},
+  size: {padding: 10, borderWidth: 1},
 });
 
 export default ProductScreen;

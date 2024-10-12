@@ -67,8 +67,16 @@ const authentication = (state = {isFetching: false}, action) => {
 //   }
 // };
 
+const favorites = (state = {products: []}, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+};
+
 export default {
   authentication,
   bottomSheetState,
   globalLoaderState,
+  favorites,
 };
