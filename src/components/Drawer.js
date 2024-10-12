@@ -28,11 +28,11 @@ const Drawer = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity style={styles.item}>
           <CartIcon color={colors.black} />
-          <CText txt="Buying" style={styles.itemText} />
+          <CText txt="Purchase History" style={styles.itemText} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.item}>
           <AvatarIcon color={colors.black} />
-          <CText txt="Selling" style={styles.itemText} />
+          <CText txt="Selling History" style={styles.itemText} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.item}>
           <HeartIcon color={colors.black} />
