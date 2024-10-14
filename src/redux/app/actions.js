@@ -5,6 +5,8 @@ import {
   HIDE_BOTTOM_SHEET,
   SHOW_GLOBAL_LOADER,
   HIDE_GLOBAL_LOADER,
+  ADD_PRODUCT_TO_FAVORITES,
+  REMOVE_PRODUCT_FROM_FAVORITES,
 } from './types';
 
 export const logout = () => ({
@@ -31,4 +33,13 @@ export const hideGlobalLoader = () => ({
 
 export const hideBottomSheet = () => ({
   type: HIDE_BOTTOM_SHEET,
+});
+
+export const addProductToFavorites = (productId) => ({
+  type: ADD_PRODUCT_TO_FAVORITES,
+  data: productId,
+});
+export const removeProductFromFavorites = (productId) => ({
+  type: REMOVE_PRODUCT_FROM_FAVORITES,
+  data: productId,
 });

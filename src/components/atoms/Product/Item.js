@@ -3,6 +3,11 @@ import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {CText} from '_components/index';
 import Icon from 'react-native-vector-icons/Entypo';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
+import {useDispatch} from 'react-redux';
+import {
+  addProductToFavorites,
+  removeProductFromFavorites,
+} from '_redux/app/actions';
 
 const Item = ({
   item,
@@ -12,14 +17,18 @@ const Item = ({
   ...props
 }) => {
   const favoriteProducts = useReduxSelector('favorites.products', []);
-
+  const dispatch = useDispatch();
   const isFavoriteProduct = useMemo(
-    () => favoriteProducts.some(({productId}) => productId === item.product_id),
+    () => favoriteProducts.some((productId) => productId === item.product_id),
     [favoriteProducts, item],
   );
 
   const toggleFavoriteProduct = () => {
-    console.log('test');
+    if (isFavoriteProduct) {
+      dispatch(removeProductFromFavorites(item.product_id));
+    } else {
+      dispatch(addProductToFavorites(item.product_id));
+    }
   };
 
   return (

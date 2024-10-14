@@ -4,6 +4,8 @@ import {
   HIDE_BOTTOM_SHEET,
   SHOW_GLOBAL_LOADER,
   HIDE_GLOBAL_LOADER,
+  ADD_PRODUCT_TO_FAVORITES,
+  REMOVE_PRODUCT_FROM_FAVORITES,
 } from '_redux/app/types';
 
 const bottomSheetState = (state = {}, action) => {
@@ -69,6 +71,14 @@ const authentication = (state = {isFetching: false}, action) => {
 
 const favorites = (state = {products: []}, action) => {
   switch (action.type) {
+    case ADD_PRODUCT_TO_FAVORITES:
+      return {products: [...state.products, action.data]};
+    case REMOVE_PRODUCT_FROM_FAVORITES:
+      return {
+        products: state.products.filter(
+          (productId) => productId !== action.data,
+        ),
+      };
     default:
       return state;
   }
