@@ -150,6 +150,7 @@ const HomeScreen = ({navigation}) => {
             {recommendedProducts.map((item, index) => (
               <ProductItem
                 item={item}
+                style={{width: 150}}
                 key={index}
                 onPress={() => goToProduct(item.product_id)}
               />
@@ -166,6 +167,7 @@ const HomeScreen = ({navigation}) => {
             {topSellerProducts.map((item, index) => (
               <ProductItem
                 item={item}
+                style={{width: 150}}
                 key={index}
                 onPress={() => goToProduct(item.product_id)}
               />

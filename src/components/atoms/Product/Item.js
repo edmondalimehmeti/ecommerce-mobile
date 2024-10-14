@@ -44,7 +44,7 @@ const Item = ({
 };
 
 const styles = StyleSheet.create({
-  image: {width: 150, aspectRatio: 1},
+  image: {width: '100%', aspectRatio: 1},
   name: {fontWeight: '700', fontSize: 16, marginTop: 5},
   price: {
     color: '#006349',

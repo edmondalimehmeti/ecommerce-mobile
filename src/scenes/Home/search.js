@@ -67,8 +67,7 @@ const Search = ({navigation}) => {
             <ProductItem
               item={item}
               showFavoriteIcon
-              style={{flex: 1}}
-              imageStyles={{width: results.length > 1 ? '100%' : '50%'}}
+              style={{width: '50%'}}
               onPress={() => goToProductScreen(item.product_id)}
             />
           )}
