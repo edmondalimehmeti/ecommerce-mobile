@@ -160,8 +160,9 @@ const HomeScreen = ({navigation}) => {
           <CText txt="TOP SELLER OF THE MONTH" style={styles.sectionTitle} />
           <ScrollView
             horizontal
-            // contentContainerStyle={styles.scrollViewContainer}
-            style={styles.scrollView}>
+            contentContainerStyle={styles.scrollViewContainer}
+            style={styles.scrollView}
+            showsHorizontalScrollIndicator={false}>
             {topSellerProducts.map((item, index) => (
               <ProductItem
                 item={item}

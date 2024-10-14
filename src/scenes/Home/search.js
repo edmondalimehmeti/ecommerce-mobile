@@ -25,8 +25,8 @@ const Search = ({navigation}) => {
   const getData = async () => {
     setLoading(true);
     try {
-      const params = stringify({qs: queryString});
-      const res = await makeRequest('GET', `/products?${params}`);
+      const params = stringify({term: queryString});
+      const res = await makeRequest('GET', `/products/search?${params}`);
       setResults(res);
     } catch (e) {
       handleRequestErrors(e);
@@ -40,7 +40,7 @@ const Search = ({navigation}) => {
   }, []);
 
   const goToProductScreen = (productId) => {
-    navigation.navigate('Product', {productId});
+    navigation.push('Product', {productId});
   };
 
   return (
@@ -53,7 +53,12 @@ const Search = ({navigation}) => {
           <Cselect data={[]} renderButton={<CText txt="Size" />} />
           <Cselect data={[]} renderButton={<CText txt="Price" />} />
         </View>
-        <CText txt="1000+ products found" style={{marginTop: 20}} />
+        <CText
+          txt={`${results.length} ${
+            results.length === 1 ? 'product' : 'products'
+          } found`}
+          style={{marginTop: 20}}
+        />
         <FlatList
           data={results}
           numColumns={2}
@@ -63,7 +68,7 @@ const Search = ({navigation}) => {
               item={item}
               showFavoriteIcon
               style={{flex: 1}}
-              imageStyles={{width: '100%'}}
+              imageStyles={{width: results.length > 1 ? '100%' : '50%'}}
               onPress={() => goToProductScreen(item.product_id)}
             />
           )}

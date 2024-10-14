@@ -22,11 +22,14 @@ import StoreIcon from '_assets/icons/store.svg';
 import {CText} from '_components/index';
 import Search from '_scenes/Home/search';
 import ProductScreen from '_scenes/Home/product';
+import CartScreen from '_scenes/cart';
+import ProfileScreen from '_scenes/profile';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
 const DrawerNav = createDrawerNavigator();
 const HomeNav = createNativeStackNavigator();
+const CartNav = createNativeStackNavigator();
 
 const SellButton = (props) => {
   return (
@@ -55,6 +58,14 @@ const HomeStack = () => {
       <HomeNav.Screen name="Search" component={Search} />
       <HomeNav.Screen name="Product" component={ProductScreen} />
     </HomeNav.Navigator>
+  );
+};
+
+const CartStack = () => {
+  return (
+    <CartNav.Navigator screenOptions={{headerShown: false}}>
+      <CartNav.Screen name="My Cart" component={CartScreen} />
+    </CartNav.Navigator>
   );
 };
 
@@ -107,8 +118,8 @@ const TabNavigator = () => {
         component={() => <View />}
         options={{tabBarButton: SellButton}}
       />
-      <Tab.Screen name="Cart" component={() => <View />} />
-      <Tab.Screen name="Profile" component={() => <View />} />
+      <Tab.Screen name="Cart" component={CartStack} />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };

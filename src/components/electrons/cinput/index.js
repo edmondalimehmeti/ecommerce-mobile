@@ -10,7 +10,6 @@ const CInput = ({
   style,
   label,
   errorText,
-  disabled,
   value,
   appendLeftIcon = null,
   onFocus = () => {},

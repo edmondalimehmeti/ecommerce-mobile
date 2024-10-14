@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Keyboard, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {CButton, CInput, CTitle} from '_components/index';
 import ChevronBottom from '_assets/icons/chevron_bottom.svg';
 import {formatDate} from '_utils/helpers/functions';
@@ -8,6 +8,7 @@ import DatePicker from 'react-native-date-picker';
 import {colors} from '_theme/index';
 import CloseIcon from '_assets/icons/close.svg';
 import moment from 'moment';
+import CModal from '_components/electrons/cmodal';
 
 const CDateInput = ({
   label,
@@ -26,6 +27,7 @@ const CDateInput = ({
   const [pickerValue, setPickerValue] = useState(new Date());
 
   const openDatePicker = () => {
+    Keyboard.dismiss();
     setIsPickerOpen(true);
   };
 
@@ -53,7 +55,7 @@ const CDateInput = ({
 
   return (
     <TouchableOpacity
-      style={style}
+      style={props.containerStyle}
       onPress={openDatePicker}
       disabled={disabled}>
       <CInput
@@ -61,56 +63,32 @@ const CDateInput = ({
         placeholder={placeholder}
         value={value && formatDate(value, dateFormat)}
         editable={false}
+        style={style}
         disabled={disabled}
         errorText={errorText}
         appendIcon={<ChevronBottom />}
       />
-      <Modal
-        backdropOpacity={0.4}
-        transparent
-        isVisible={isPickerOpen}
-        onBackButtonPress={closeDatePicker}
-        onBackdropPress={closeDatePicker}
-        onSwipeComplete={closeDatePicker}
-        swipeDirection="down"
-        animationIn="slideInUp"
-        animationOut="slideOutDown"
-        style={styles.modal}>
-        <View style={styles.modalContent}>
-          <View style={styles.header}>
-            <CTitle txt={pickerText} />
-            <TouchableOpacity
-              style={styles.closeContainer}
-              onPress={closeDatePicker}>
-              <CloseIcon color={colors.grey6} />
-            </TouchableOpacity>
-          </View>
-          <DatePicker
-            style={styles.datePicker}
-            mode="date"
-            date={pickerValue}
-            theme="light"
-            onDateChange={(date) => setPickerValue(date)}
-            {...props}
-          />
-          <CButton text="Save" onPress={onConfirm} />
-        </View>
-      </Modal>
+      <CModal
+        containerStyle={styles.modalContent}
+        show={isPickerOpen}
+        onClose={closeDatePicker}>
+        <CTitle txt={pickerText} />
+        <DatePicker
+          style={styles.datePicker}
+          mode="date"
+          date={pickerValue}
+          theme="light"
+          onDateChange={(date) => setPickerValue(date)}
+          {...props}
+        />
+        <CButton text="Save" onPress={onConfirm} />
+      </CModal>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  modal: {
-    justifyContent: 'flex-end',
-    margin: 0,
-  },
-  modalContent: {
-    backgroundColor: colors.white,
-    padding: 20,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-  },
+  modalContent: {paddingHorizontal: 20},
   datePicker: {alignSelf: 'center', marginVertical: 10},
   header: {
     flexDirection: 'row',

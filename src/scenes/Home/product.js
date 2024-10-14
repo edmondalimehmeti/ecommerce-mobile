@@ -30,6 +30,7 @@ const ProductScreen = ({route}) => {
   const productId = route?.params?.productId;
   const {makeRequest} = useAPI();
   const [loading, setLoading] = useState(false);
+  const [adding, setAdding] = useState(false);
   const [size, setSize] = useState(null);
 
   const getProduct = async () => {
@@ -44,8 +45,16 @@ const ProductScreen = ({route}) => {
     }
   };
 
-  const addToBasket = () => {
-    console.log({productId, size});
+  const addToBasket = async () => {
+    setAdding(true);
+    try {
+      const res = await makeRequest('POST', '/cart', {productId, quality: 1});
+      console.log(res);
+    } catch (e) {
+      handleRequestErrors(e);
+    } finally {
+      setAdding(false);
+    }
   };
 
   useEffect(() => {
@@ -87,7 +96,9 @@ const ProductScreen = ({route}) => {
           <CButton
             text="Add to basket"
             containerStyle={{marginTop: 20}}
+            disable={!!product.in_cart}
             onPress={addToBasket}
+            loading={adding}
           />
           <View style={{marginTop: 20}}>
             <CText txt="Product Detail" style={styles.title} />

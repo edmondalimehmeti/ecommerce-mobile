@@ -11,15 +11,9 @@ import {useDispatch} from 'react-redux';
 import {logout} from '_redux/app/actions';
 
 const Drawer = ({navigation}) => {
-  const [qs, setQs] = useState('');
   const dispatch = useDispatch();
   return (
     <SafeAreaView style={styles.container}>
-      <Csearchinput
-        value={qs}
-        onChangeText={setQs}
-        containerStyles={styles.input}
-      />
       <CText txt="Account" style={styles.text} />
       <View style={styles.itemContainer}>
         <TouchableOpacity style={styles.item}>
