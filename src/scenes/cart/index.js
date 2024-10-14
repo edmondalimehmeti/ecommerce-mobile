@@ -6,7 +6,7 @@ import useAPI from '_utils/hooks/useAPI';
 const CartScreen = () => {
   const {makeRequest} = useAPI();
   const getData = async () => {
-    const res = await makeRequest('GET', '/');
+    const res = await makeRequest('GET', '/cart');
     console.log(res);
   };
 

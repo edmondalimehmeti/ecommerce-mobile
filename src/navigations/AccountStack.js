@@ -24,6 +24,7 @@ import Search from '_scenes/Home/search';
 import ProductScreen from '_scenes/Home/product';
 import CartScreen from '_scenes/cart';
 import ProfileScreen from '_scenes/profile';
+import FavoritesScreen from '_scenes/Favorites';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
@@ -112,7 +113,7 @@ const TabNavigator = () => {
         inactiveTintColor: colors.white,
       }}>
       <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Favorites" component={() => <View />} />
+      <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen
         name="Sell"
         component={() => <View />}

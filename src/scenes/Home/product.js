@@ -25,7 +25,7 @@ const renderItem = ({item}) => (
 
 const sizes = ['S', 'M', 'L', 'XL'];
 
-const ProductScreen = ({route}) => {
+const ProductScreen = ({route, navigation}) => {
   const [product, setProduct] = useState({});
   const productId = route?.params?.productId;
   const {makeRequest} = useAPI();
@@ -50,6 +50,7 @@ const ProductScreen = ({route}) => {
     try {
       const res = await makeRequest('POST', '/cart', {productId, quality: 1});
       console.log(res);
+      navigation.navigate('Cart');
     } catch (e) {
       handleRequestErrors(e);
     } finally {
