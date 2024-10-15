@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import {SafeAreaViewScreen} from '_scenes/base';
 import useReduxSelector from '_utils/hooks/useReduxSelector';
 import {CButton, CButtonOutline, CText} from '_components/index';
-import {Image, StyleSheet, View} from 'react-native';
+import {FlatList, Image, StyleSheet, View} from 'react-native';
 import CBack from '_components/chore/back';
 import {colors} from '_theme/index';
 import {useDispatch} from 'react-redux';
@@ -47,8 +47,10 @@ const FavoritesScreen = () => {
   return (
     <SafeAreaViewScreen style={styles.root} loading={loading}>
       <CBack title="Favorites" containerStyle={styles.backButton} />
-      <View style={styles.productContainer}>
-        {[...productIds, ...productIds].map((productId) => (
+      <FlatList
+        data={productIds}
+        contentContainerStyle={styles.productContainer}
+        renderItem={({item}) => (
           <View style={styles.product}>
             <Image
               source={require('_assets/images/img_1.png')}
@@ -76,8 +78,8 @@ const FavoritesScreen = () => {
             </View>
             <CText txt="99.99 €" style={styles.productPrice} />
           </View>
-        ))}
-      </View>
+        )}
+      />
     </SafeAreaViewScreen>
   );
 };

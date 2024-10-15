@@ -8,11 +8,9 @@ import HeartIcon from '_assets/icons/heart.svg';
 import LogoutIcon from '_assets/icons/logout.svg';
 import {useDispatch} from 'react-redux';
 import {logout} from '_redux/app/actions';
-import {useNavigation} from '@react-navigation/native';
 
-const Drawer = () => {
+const Drawer = ({navigation}) => {
   const dispatch = useDispatch();
-  const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -24,13 +22,15 @@ const Drawer = () => {
           <AvatarIcon color={colors.black} />
           <CText txt="Profile" style={styles.itemText} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => navigation.navigate('Purchase History')}>
           <CartIcon color={colors.black} />
           <CText txt="Purchase History" style={styles.itemText} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.item}>
           <AvatarIcon color={colors.black} />
-          <CText txt="Selling History" style={styles.itemText} />
+          <CText txt="Sell History" style={styles.itemText} />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.item}

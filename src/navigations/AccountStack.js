@@ -25,6 +25,8 @@ import ProductScreen from '_scenes/Home/product';
 import CartScreen from '_scenes/cart';
 import ProfileScreen from '_scenes/profile';
 import FavoritesScreen from '_scenes/Favorites';
+import PurchaseHistoryScreen from '_scenes/profile/PurchaseHistory';
+import SellHistoryScreen from '_scenes/profile/SellHistory';
 // Import other screens for your tabs
 
 const Tab = createBottomTabNavigator();
@@ -58,6 +60,11 @@ const HomeStack = () => {
       <HomeNav.Screen name="Home" component={HomeScreen} />
       <HomeNav.Screen name="Search" component={Search} />
       <HomeNav.Screen name="Product" component={ProductScreen} />
+      <HomeNav.Screen
+        name="Purchase History"
+        component={PurchaseHistoryScreen}
+      />
+      <HomeNav.Screen name="Sell History" component={SellHistoryScreen} />
     </HomeNav.Navigator>
   );
 };
@@ -116,7 +123,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Favorites" component={FavoritesScreen} />
       <Tab.Screen
         name="Sell"
-        component={() => <View />}
+        component={View}
         options={{tabBarButton: SellButton}}
       />
       <Tab.Screen name="Cart" component={CartStack} />

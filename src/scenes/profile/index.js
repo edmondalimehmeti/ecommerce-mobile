@@ -34,7 +34,7 @@ const ProfileScreen = () => {
   };
 
   const saveData = async () => {
-    setLoading(true);
+    setSubmitting(true);
     try {
       const res = await makeRequest('POST', '/user', {
         email,
@@ -45,7 +45,7 @@ const ProfileScreen = () => {
     } catch (e) {
       handleRequestErrors(e);
     } finally {
-      setLoading(false);
+      setSubmitting(false);
     }
   };
 
@@ -54,7 +54,9 @@ const ProfileScreen = () => {
   }, []);
 
   return (
-    <SafeAreaViewScreen loading={loading}>
+    <SafeAreaViewScreen
+      loading={loading}
+      style={{backgroundColor: colors.background}}>
       <View style={{paddingHorizontal: 20}}>
         <CBack title="Profile" />
         <KeyboardAvoidingView style={{marginTop: 40}}>
@@ -74,7 +76,7 @@ const ProfileScreen = () => {
           <CDateInput
             label="Date of birth"
             style={styles.input}
-            onChange={(date) => setBirthdate(moment(date).toISOString())}
+            onChange={setBirthdate}
             value={birthdate}
           />
           <CButton
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
   input: {
     borderBottomWidth: 1,
     borderWidth: 0,
+    backgroundColor: colors.background,
     borderBottomColor: colors.black,
     marginBottom: 15,
   },
