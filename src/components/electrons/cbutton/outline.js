@@ -1,10 +1,19 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {colors} from '_theme/index';
 import {CText} from '_components/index';
 import CPressable from '_components/chore/CPressable';
 
-const CButtonOutline = ({text, onPress, ...props}) => {
+const CButtonOutline = ({text, onPress, xs, width, ...props}) => {
+  const containerStyles = useMemo(() => {
+    const containerWidth = width ? width : '100%';
+    let height = 50;
+    if (xs) {
+      height = 30;
+    }
+    return {height: height, width: containerWidth};
+  }, [width, xs]);
+
   return (
     <View style={props.containerStyle}>
       <CPressable
@@ -12,7 +21,7 @@ const CButtonOutline = ({text, onPress, ...props}) => {
         outputMax={0.98}
         activeOpacity={0.8}
         onPress={onPress}
-        style={styles.container}>
+        style={[styles.container, containerStyles]}>
         <View style={styles.row}>
           <CText style={styles.text} txt={text} />
         </View>

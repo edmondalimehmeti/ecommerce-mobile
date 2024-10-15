@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {SafeAreaViewScreen} from '_scenes/base';
 import Header from '_components/chore/Header';
 import {
@@ -15,6 +15,7 @@ import {CButton, CText} from '_components/index';
 import {colors} from '_theme/index';
 import {handleRequestErrors} from '_utils/helpers/functions';
 import useAPI from '_utils/hooks/useAPI';
+import {useFocusEffect} from '@react-navigation/native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const renderItem = ({item}) => (
@@ -48,8 +49,7 @@ const ProductScreen = ({route, navigation}) => {
   const addToBasket = async () => {
     setAdding(true);
     try {
-      const res = await makeRequest('POST', '/cart', {productId, quality: 1});
-      console.log(res);
+      await makeRequest('POST', '/cart', {productId, quantity: 1});
       navigation.navigate('Cart');
     } catch (e) {
       handleRequestErrors(e);
@@ -58,9 +58,11 @@ const ProductScreen = ({route, navigation}) => {
     }
   };
 
-  useEffect(() => {
-    getProduct();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getProduct();
+    }, []),
+  );
 
   return (
     <SafeAreaViewScreen loading={loading}>
@@ -97,7 +99,7 @@ const ProductScreen = ({route, navigation}) => {
           <CButton
             text="Add to basket"
             containerStyle={{marginTop: 20}}
-            disable={!!product.in_cart}
+            disable={product.in_cart}
             onPress={addToBasket}
             loading={adding}
           />

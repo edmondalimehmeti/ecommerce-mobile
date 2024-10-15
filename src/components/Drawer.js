@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {colors} from '_theme/index';
-import Csearchinput from '_components/core/csearchinput';
 import {CText} from '_components/index';
 import AvatarIcon from '_assets/icons/avatar.svg';
 import CartIcon from '_assets/icons/cart.svg';
@@ -9,14 +8,19 @@ import HeartIcon from '_assets/icons/heart.svg';
 import LogoutIcon from '_assets/icons/logout.svg';
 import {useDispatch} from 'react-redux';
 import {logout} from '_redux/app/actions';
+import {useNavigation} from '@react-navigation/native';
 
-const Drawer = ({navigation}) => {
+const Drawer = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <CText txt="Account" style={styles.text} />
       <View style={styles.itemContainer}>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => navigation.navigate('Profile')}>
           <AvatarIcon color={colors.black} />
           <CText txt="Profile" style={styles.itemText} />
         </TouchableOpacity>
@@ -28,7 +32,9 @@ const Drawer = ({navigation}) => {
           <AvatarIcon color={colors.black} />
           <CText txt="Selling History" style={styles.itemText} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => navigation.navigate('Favorites')}>
           <HeartIcon color={colors.black} />
           <CText txt="Favorites" style={styles.itemText} />
         </TouchableOpacity>
